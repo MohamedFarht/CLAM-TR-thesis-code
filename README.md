@@ -103,7 +103,7 @@ Neural Computing and Applications (under review).
 
 ## Licence
 
-MIT Licence (see `LICENSE` file).
+GNU General Public License, version 3 only (GPL-3.0-only); see `LICENSE`. The licence follows that of CLAM (https://github.com/mahmoodlab/CLAM), parts of which this code re-implements.
 
 ---
 
