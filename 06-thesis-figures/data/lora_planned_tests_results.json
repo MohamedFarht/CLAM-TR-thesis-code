@@ -1,0 +1,2848 @@
+{
+ "status": "ok",
+ "generated": "2026-11-08T17:07:16",
+ "versions": {
+  "python": "3.13.3",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "sklearn": "1.8.0",
+  "statsmodels": "0.15.0"
+ },
+ "methods": {
+  "pairing": "fold index 0-4 on identical fold slide sets",
+  "p_t": "scipy ttest_rel / ttest_1samp, two-sided",
+  "p_W": "scipy wilcoxon(method='exact'), two-sided",
+  "d_z": "mean difference / SD(differences, ddof=1)",
+  "bootstrap": "folds resampled with replacement, B=10000, numpy RandomState(42) re-seeded per comparison, np.percentile [2.5, 97.5]",
+  "nadeau_bengio": "t = mean / (SD * sqrt(1/5 + 1/4)), df = 4 (thesis Ch.2 sec:stat_plan); sensitivity with 1/5 + mean(n_test/n_train) = 1/5 + 0.250071",
+  "bh": "statsmodels multipletests(method='fdr_bh'), cross-checked against a manual step-up"
+ },
+ "inputs_sha256": {
+  "<project>\\CLAM-master\\final-code\\05-experimental\\lora_v1_results\\v20_lora_features_results.json": "4ac65bc6288659ae16c2095221d04a5f8ec527a687df79022cc7bff3f0731913",
+  "<project>\\CLAM-master\\final-code\\05-experimental\\lora_v1_results\\lora_training_results.json": "963150e09cb15d02ca14290da7ff1509194a67869189f61435e72fe3d05c4c8f",
+  "<project>\\CLAM-master\\final-code\\05-experimental\\lora_v1_results\\lora_fold0_predictions.json": "7b0c4efcd4074a77d95edad54a4e6aa0f7f492fb4fb81983521adcf07f4403fb",
+  "<project>\\CLAM-master\\final-code\\05-experimental\\lora_v1_results\\lora_fold1_predictions.json": "e7ac61be98e7fc9988cfe765782e84103d37c24e1df1fd2ad6fc34f6958fa8a3",
+  "<project>\\CLAM-master\\final-code\\05-experimental\\lora_v1_results\\lora_fold2_predictions.json": "530bd49d1935f74bde3fac9cf7ddabe2e468269959bc91569132e4155939365f",
+  "<project>\\CLAM-master\\final-code\\05-experimental\\lora_v1_results\\lora_fold3_predictions.json": "1aa39e69c3d21156f9f934c9ae5884966c260ffb893483483b574a9a6b19a959",
+  "<project>\\CLAM-master\\final-code\\05-experimental\\lora_v1_results\\lora_fold4_predictions.json": "a20ae573bde7d25bff7cc66983e0a553a5e48482712c79610bc5d83de479a195"
+ },
+ "frozen_files_used": {
+  "UNI/ABMIL_bestHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_bestHP_fold0_predictions.json",
+   "sha256": "972708945a7194c4ec73af4a6b62982db0119a38a80eff142750e0621633d154"
+  },
+  "UNI/ABMIL_bestHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_bestHP_fold1_predictions.json",
+   "sha256": "1085cfcac2a3a05788c6ce56c20d9a1aa056cbaf605ca3782d611b23910870d4"
+  },
+  "UNI/ABMIL_bestHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_bestHP_fold2_predictions.json",
+   "sha256": "46c34169ad6e2f34b878b868f4c0bc687ee0577cfb2f237e62d43827d06e8ff5"
+  },
+  "UNI/ABMIL_bestHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_bestHP_fold3_predictions.json",
+   "sha256": "db22c2076d087fa1cb3f0a5445117f91ab8060a6ea01382c31cef4228f654926"
+  },
+  "UNI/ABMIL_bestHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_bestHP_fold4_predictions.json",
+   "sha256": "3233ee53851b6d9bfc7a83f6f96c3adc25c1861be80e281b9ce5df3dc08d4597"
+  },
+  "UNI/DualBranch_bestHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_bestHP_fold0_predictions.json",
+   "sha256": "a9521e8f5181249de8c7fefb32cde4dcccb81d6e1e1394f75fd62f2ab84032e3"
+  },
+  "UNI/DualBranch_bestHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_bestHP_fold1_predictions.json",
+   "sha256": "8a85bc57fcce83e97a4c5b47127270fd50f9b5a6cf9892cbd14ddd57870447fb"
+  },
+  "UNI/DualBranch_bestHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_bestHP_fold2_predictions.json",
+   "sha256": "f4430c6d8f284a8d6ff09d8f4255920e22a8ef45bfec8c3cabc2e66530acb494"
+  },
+  "UNI/DualBranch_bestHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_bestHP_fold3_predictions.json",
+   "sha256": "fa81cd061cc6e40c08b24f3f569a0267f07f166ae4257a319cf0fe7dde276e61"
+  },
+  "UNI/DualBranch_bestHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_bestHP_fold4_predictions.json",
+   "sha256": "81a815b8098f29aeff2eb05e001cdd8525fbdc9d2d056371c8141a469465e0c5"
+  },
+  "UNI/SpatialMult_bestHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_bestHP_fold0_predictions.json",
+   "sha256": "46566e4ad409f379ad292453bab9c5b331c46861068210ecad992855227d6d24"
+  },
+  "UNI/SpatialMult_bestHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_bestHP_fold1_predictions.json",
+   "sha256": "bdfdd1253be2219ca15ea2463564f13c1f610b85ae14f2213790188f5010fc45"
+  },
+  "UNI/SpatialMult_bestHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_bestHP_fold2_predictions.json",
+   "sha256": "8220a2e54a7e6f8e50b372556956951a9c5d2552833836efc0fc4d6d13489d85"
+  },
+  "UNI/SpatialMult_bestHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_bestHP_fold3_predictions.json",
+   "sha256": "db399742059e65b071e5502b8893867b7a9fc7a3bffe63050ea04c600968a7a1"
+  },
+  "UNI/SpatialMult_bestHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_bestHP_fold4_predictions.json",
+   "sha256": "03c20b0afe72d922899dec488f24e265bf3a14845aa40ac853f4fcc2a3c3898c"
+  },
+  "UNI/SpatialAdd_bestHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_bestHP_fold0_predictions.json",
+   "sha256": "88a6bcf6e094343340427a79444b445aa3ab8a13ebdf62daebadad887e40004d"
+  },
+  "UNI/SpatialAdd_bestHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_bestHP_fold1_predictions.json",
+   "sha256": "2bb4c1ae98a09ed0fe6766faae6c51cc2deb277d0f87e9e455801655fb2facfa"
+  },
+  "UNI/SpatialAdd_bestHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_bestHP_fold2_predictions.json",
+   "sha256": "a3da7b4c8a7c6778d9f414c04ba856ad08643e28c2e80a76a84b722390125799"
+  },
+  "UNI/SpatialAdd_bestHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_bestHP_fold3_predictions.json",
+   "sha256": "66f6c42a9c281e17e659f92a605b76caf5f7fb73ae50051f0898ad6ca79c3047"
+  },
+  "UNI/SpatialAdd_bestHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_bestHP_fold4_predictions.json",
+   "sha256": "b1f3c66574190e18cb6de561122bbeec50a0bdd1953a4421b6c2a98fb742a6b3"
+  },
+  "UNI/RetNet_bestHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_bestHP_fold0_predictions.json",
+   "sha256": "e7aae79cf34b681a454732eb88c55489f3dbaef0f5c1f5f55aa97f412282e5ad"
+  },
+  "UNI/RetNet_bestHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_bestHP_fold1_predictions.json",
+   "sha256": "5aae2c7c045e3fcfed12d359175079967fe611667c2a62429c3195a52356bc9d"
+  },
+  "UNI/RetNet_bestHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_bestHP_fold2_predictions.json",
+   "sha256": "1dd28b62b3f37af0104581f777953eed9e99f05b6334dfa9d73420a0e8341032"
+  },
+  "UNI/RetNet_bestHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_bestHP_fold3_predictions.json",
+   "sha256": "3e74a7ab74b2b7d971b37b72711dfa89b6dcf8ecb7b6cddb01cb26f0eaffdc09"
+  },
+  "UNI/RetNet_bestHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_bestHP_fold4_predictions.json",
+   "sha256": "c494026c2c30b80de728e69e6cb9b090e37e455bb69b3c9e3eb42465c017c065"
+  },
+  "UNI/SpatialMultRetNet_bestHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_bestHP_fold0_predictions.json",
+   "sha256": "3be36e65b31f05bd31c2d5653f307fda602db9ec86062113f523605ce5a672f4"
+  },
+  "UNI/SpatialMultRetNet_bestHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_bestHP_fold1_predictions.json",
+   "sha256": "184cbc51121f52b66355eb28cb37eb15158473df36d351f40fbed4dd4667f57b"
+  },
+  "UNI/SpatialMultRetNet_bestHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_bestHP_fold2_predictions.json",
+   "sha256": "d768355cbb0c35081083425ecf5a094d4d6b1d77c9780879897a00b7ce99f54b"
+  },
+  "UNI/SpatialMultRetNet_bestHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_bestHP_fold3_predictions.json",
+   "sha256": "396078055a8898f5c3b4516915c40d459625d287edaa3ac7cd26cf9b8bc9d525"
+  },
+  "UNI/SpatialMultRetNet_bestHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_bestHP_fold4_predictions.json",
+   "sha256": "394f3710fcb1f1fc0b4688b82f59372f9df71893c63af6bb32686df8e0de0cc4"
+  },
+  "UNI/ABMIL_defaultHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_defaultHP_fold0_predictions.json",
+   "sha256": "f5f7fb43474a54a933ccdfcdf2863da55c2fd5edc0b3302fa0b04dca07ed9101"
+  },
+  "UNI/ABMIL_defaultHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_defaultHP_fold1_predictions.json",
+   "sha256": "b89a3b822ca8ea9bf75104a73dc36d761798687e984048d63b7af81f316ade45"
+  },
+  "UNI/ABMIL_defaultHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_defaultHP_fold2_predictions.json",
+   "sha256": "8d74e9ffbc8de9607c4bdff67bc5457ee012b9297a10ae2634beb5094535afa7"
+  },
+  "UNI/ABMIL_defaultHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_defaultHP_fold3_predictions.json",
+   "sha256": "8fe539028c3c5d0349328928e061b15c2bd6c7efd089420fec844a161ba316ec"
+  },
+  "UNI/ABMIL_defaultHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\ABMIL_defaultHP_fold4_predictions (1).json",
+   "sha256": "4d964af314456ad2e77d42822799993746cec55be8f111c46653742586929ed5"
+  },
+  "UNI/DualBranch_defaultHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_defaultHP_fold0_predictions.json",
+   "sha256": "815a1cf4d43c78160722c80ae4e0e043887819c1518ef99ec714e7cc47e23a1f"
+  },
+  "UNI/DualBranch_defaultHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_defaultHP_fold1_predictions.json",
+   "sha256": "05385bcabb0e5279bbf29b95c9401f35c06efef5f11b15c8d3a4cb1f61d9a470"
+  },
+  "UNI/DualBranch_defaultHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_defaultHP_fold2_predictions.json",
+   "sha256": "044fd64fc97b2d03d7a6904ea6713182fad40d129ec3c418785675ce03adb724"
+  },
+  "UNI/DualBranch_defaultHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_defaultHP_fold3_predictions.json",
+   "sha256": "b7ad6314e12790551bed87c2cef8982be188ad114180f6c0b62cbbdde6e98b84"
+  },
+  "UNI/DualBranch_defaultHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\DualBranch_defaultHP_fold4_predictions.json",
+   "sha256": "f16238d566b20a3a86fc815a342e98e2c19ff4067753487eb785ba82dbd70aaa"
+  },
+  "UNI/SpatialMult_defaultHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_defaultHP_fold0_predictions.json",
+   "sha256": "ff8d0d7ac3d4cf56d6691034b37e4e385f2520109fe68a07a8955091ad471940"
+  },
+  "UNI/SpatialMult_defaultHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_defaultHP_fold1_predictions.json",
+   "sha256": "95dea7fe29924150ede3c9fd40919c98ad7bca893c798b568cad6306bee92220"
+  },
+  "UNI/SpatialMult_defaultHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_defaultHP_fold2_predictions.json",
+   "sha256": "7e12500d8b1629a821957f2f7e80b5c33fe265bb8d8de4281a37f536a8cea01e"
+  },
+  "UNI/SpatialMult_defaultHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_defaultHP_fold3_predictions.json",
+   "sha256": "846514b5ba669e949440c75ffeaea4f3df78c398df3a91ca8739a4c4467912f6"
+  },
+  "UNI/SpatialMult_defaultHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMult_defaultHP_fold4_predictions.json",
+   "sha256": "3fcff17efc451367226d241dcf27a4e629a35d3126d3bd36980c593f3b9e77f8"
+  },
+  "UNI/SpatialAdd_defaultHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_defaultHP_fold0_predictions.json",
+   "sha256": "997bfc7e68f115d01e0d06a8452c1b650354fea08ffc70eb98cdcee6d583951e"
+  },
+  "UNI/SpatialAdd_defaultHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_defaultHP_fold1_predictions.json",
+   "sha256": "1b3f431c8122946cb82089e9e096e4273b8187fa087ce4d259cfa7d02584eac3"
+  },
+  "UNI/SpatialAdd_defaultHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_defaultHP_fold2_predictions.json",
+   "sha256": "a3ce5fd0866c742329a0f7f3599cc102cdb130d30f9f8d777cf8a09bb53dbb01"
+  },
+  "UNI/SpatialAdd_defaultHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_defaultHP_fold3_predictions.json",
+   "sha256": "3c159508613fe110a571f3dbae631009ce968fb75ee71a68bfc227f06c4806be"
+  },
+  "UNI/SpatialAdd_defaultHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialAdd_defaultHP_fold4_predictions.json",
+   "sha256": "13b8352eff2ab444a84043b504b0194fa1e9af40e7b9317173a49890d2693c9b"
+  },
+  "UNI/RetNet_defaultHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_defaultHP_fold0_predictions.json",
+   "sha256": "09dba8fe087332f437afb79276bf9ad77a5f0eee38280a851c3645013a35445b"
+  },
+  "UNI/RetNet_defaultHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_defaultHP_fold1_predictions.json",
+   "sha256": "c00446d6f149f3e17943cd1f57745e32929c4a7590acdcaed5f2cfc3e3080cc5"
+  },
+  "UNI/RetNet_defaultHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_defaultHP_fold2_predictions.json",
+   "sha256": "d9ac87ac19e4675b190a502038328a9317f62520929b4cc7d007931af0beb5c5"
+  },
+  "UNI/RetNet_defaultHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_defaultHP_fold3_predictions.json",
+   "sha256": "73ef348b833a09bdb0f50d68176d254bba211bff50acea77b50469b7c03258a6"
+  },
+  "UNI/RetNet_defaultHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\RetNet_defaultHP_fold4_predictions.json",
+   "sha256": "d62987a4b55009beb8d7ffbb838bf61e8115027cf3f9ae61016fabc5896eda93"
+  },
+  "UNI/SpatialMultRetNet_defaultHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_defaultHP_fold0_predictions.json",
+   "sha256": "074c0a0be56a1c75fb10fd61a076c18a52fc711b999a0775937c9866015a0351"
+  },
+  "UNI/SpatialMultRetNet_defaultHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_defaultHP_fold1_predictions.json",
+   "sha256": "1462281608db2607726b2dd8ad2d9506ca7c7e4d6c846d41c4d7b4fd8082b488"
+  },
+  "UNI/SpatialMultRetNet_defaultHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_defaultHP_fold2_predictions.json",
+   "sha256": "bfaea462ac7a6de83cd5884e329b020dc549c70ce4b660098e72f994aabcd5b3"
+  },
+  "UNI/SpatialMultRetNet_defaultHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_defaultHP_fold3_predictions.json",
+   "sha256": "10568bffdab27933cd4328a14714c11b4aba83f5d52ba39616d531b820f35d2a"
+  },
+  "UNI/SpatialMultRetNet_defaultHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI\\predictions\\SpatialMultRetNet_defaultHP_fold4_predictions.json",
+   "sha256": "e8dd8c1876fa08ed86a50d76f634ad7f93a22a02d65be63048bb9bdbf2e20a11"
+  },
+  "UNI2-h/SpatialMultRetNet_bestHP/fold0": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI2-h\\predictions\\SpatialMultRetNet_bestHP_fold0_predictions.json",
+   "sha256": "95456b4f97a49f5622b683e0298d67a44a30baa21efea6a7418a3f540458cfc6"
+  },
+  "UNI2-h/SpatialMultRetNet_bestHP/fold1": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI2-h\\predictions\\SpatialMultRetNet_bestHP_fold1_predictions.json",
+   "sha256": "46adce77991137cec9feb1e7827980386137027be954ab1483f7a84c832ead30"
+  },
+  "UNI2-h/SpatialMultRetNet_bestHP/fold2": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI2-h\\predictions\\SpatialMultRetNet_bestHP_fold2_predictions.json",
+   "sha256": "6787ae151d48100ceeba6326e49afe4787b2152b23481cf6217c05555b6a5077"
+  },
+  "UNI2-h/SpatialMultRetNet_bestHP/fold3": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI2-h\\predictions\\SpatialMultRetNet_bestHP_fold3_predictions.json",
+   "sha256": "6b8d5bf9c24e57a31d02553fe7b77df41d9d2258efcb10f55a6a4d4a29a658bc"
+  },
+  "UNI2-h/SpatialMultRetNet_bestHP/fold4": {
+   "file": "<project>\\CLAM-master\\CLAM_TR_Results\\v20_fullscale\\UNI2-h\\predictions\\SpatialMultRetNet_bestHP_fold4_predictions.json",
+   "sha256": "00c2627f641e2434b9316461d839ed637896926d2c958e14d0a77f47ac11dcee"
+  }
+ },
+ "duplicate_prediction_files": {
+  "UNI ABMIL_defaultHP": [
+   "fold 4: ABMIL_defaultHP_fold4_predictions (1).json QWK 0.926655 matches; ABMIL_defaultHP_fold4_predictions.json QWK 0.928244 matches no stored value"
+  ]
+ },
+ "fold_sizes": [
+  1803,
+  1787,
+  1816,
+  1933,
+  1789
+ ],
+ "per_fold": {
+  "lora_uni_stage4": {
+   "ABMIL_bestHP": [
+    0.9456813520914688,
+    0.9431592087235505,
+    0.9448341739703259,
+    0.9563256090577069,
+    0.9384894389620758
+   ],
+   "DualBranch_bestHP": [
+    0.9418980022415753,
+    0.9452877010545908,
+    0.9469524271782418,
+    0.9565565259604536,
+    0.9413758168417545
+   ],
+   "SpatialMult_bestHP": [
+    0.9457472445741809,
+    0.9490745206393462,
+    0.9516252322856462,
+    0.9584077680617163,
+    0.9457184976959221
+   ],
+   "SpatialAdd_bestHP": [
+    0.947514023540648,
+    0.9432630522333564,
+    0.9443200603061104,
+    0.9511459564551282,
+    0.9496166775099305
+   ],
+   "RetNet_bestHP": [
+    0.9472184415438085,
+    0.9484372150832932,
+    0.9485877117692887,
+    0.9584190455618884,
+    0.9486163661708613
+   ],
+   "SpatialMultRetNet_bestHP": [
+    0.9493161176021299,
+    0.9475412387973399,
+    0.9516675249131221,
+    0.9528564078025421,
+    0.9475546019686342
+   ],
+   "ABMIL_defaultHP": [
+    0.9271835736547894,
+    0.928468497318069,
+    0.9321799409782343,
+    0.9412524516391594,
+    0.9292747005756496
+   ],
+   "DualBranch_defaultHP": [
+    0.9325610160469354,
+    0.9400857960241342,
+    0.9358396928351448,
+    0.94803591092283,
+    0.9245802030905816
+   ],
+   "SpatialMult_defaultHP": [
+    0.9489105735205864,
+    0.9493572009832358,
+    0.9558543838573913,
+    0.9561670052971483,
+    0.9475369177050313
+   ],
+   "SpatialAdd_defaultHP": [
+    0.9517952509391936,
+    0.9537977464023792,
+    0.9493863187626405,
+    0.9563271225852196,
+    0.9531136528301823
+   ],
+   "RetNet_defaultHP": [
+    0.9411433693644804,
+    0.9426594073425912,
+    0.9386226637829688,
+    0.9426921608985456,
+    0.9402300505787541
+   ],
+   "SpatialMultRetNet_defaultHP": [
+    0.938502299780342,
+    0.9406121331172212,
+    0.9494808477741572,
+    0.9446360784162592,
+    0.9364631399126657
+   ]
+  },
+  "frozen_uni": {
+   "ABMIL_bestHP": [
+    0.9454863213845263,
+    0.9474928660194376,
+    0.9426823039864852,
+    0.9516397491701059,
+    0.9404888876556005
+   ],
+   "DualBranch_bestHP": [
+    0.9499014406339181,
+    0.9462814626081265,
+    0.9511768808596093,
+    0.9616367068245248,
+    0.9403401033197714
+   ],
+   "SpatialMult_bestHP": [
+    0.9486203303669333,
+    0.9494037071208549,
+    0.9245808490925151,
+    0.9561836700446658,
+    0.9142019471218261
+   ],
+   "SpatialAdd_bestHP": [
+    0.9478424504165112,
+    0.9443260947458495,
+    0.9538525941866359,
+    0.9551465499292819,
+    0.9458992040946159
+   ],
+   "RetNet_bestHP": [
+    0.9525862043776658,
+    0.9534437021060332,
+    0.954419292453544,
+    0.9624661848332206,
+    0.9483721981793
+   ],
+   "SpatialMultRetNet_bestHP": [
+    0.9511846232541686,
+    0.9507554227786505,
+    0.9499030154274852,
+    0.9604603177101829,
+    0.9472484741260851
+   ],
+   "ABMIL_defaultHP": [
+    0.9305762828072803,
+    0.9346845431699679,
+    0.928987218636241,
+    0.9403519676438215,
+    0.9266554401061528
+   ],
+   "DualBranch_defaultHP": [
+    0.930061867029455,
+    0.9407550063543875,
+    0.9342630135916296,
+    0.9451498104577772,
+    0.9315281469007861
+   ],
+   "SpatialMult_defaultHP": [
+    0.9242537669397031,
+    0.9410179823108179,
+    0.930755170229436,
+    0.9571341730208639,
+    0.9260083466411009
+   ],
+   "SpatialAdd_defaultHP": [
+    0.9254494131718801,
+    0.9555248499105409,
+    0.951950745214283,
+    0.9317970277072554,
+    0.9433651836316456
+   ],
+   "RetNet_defaultHP": [
+    0.9331533430886494,
+    0.9287426162106589,
+    0.9480499036918971,
+    0.9545150599897013,
+    0.9438708601414771
+   ],
+   "SpatialMultRetNet_defaultHP": [
+    0.9442202304510414,
+    0.935895812125725,
+    0.9413614515698837,
+    0.9492928872744786,
+    0.9381703975511971
+   ]
+  },
+  "frozen_uni_stored_list_position_of_fold": {
+   "ABMIL_bestHP": [
+    3,
+    2,
+    1,
+    0,
+    4
+   ],
+   "DualBranch_bestHP": [
+    0,
+    3,
+    4,
+    1,
+    2
+   ],
+   "SpatialMult_bestHP": [
+    4,
+    2,
+    0,
+    1,
+    3
+   ],
+   "SpatialAdd_bestHP": [
+    1,
+    3,
+    2,
+    0,
+    4
+   ],
+   "RetNet_bestHP": [
+    4,
+    1,
+    0,
+    3,
+    2
+   ],
+   "SpatialMultRetNet_bestHP": [
+    1,
+    3,
+    2,
+    0,
+    4
+   ],
+   "ABMIL_defaultHP": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "DualBranch_defaultHP": [
+    3,
+    4,
+    2,
+    0,
+    1
+   ],
+   "SpatialMult_defaultHP": [
+    4,
+    2,
+    3,
+    1,
+    0
+   ],
+   "SpatialAdd_defaultHP": [
+    3,
+    4,
+    1,
+    2,
+    0
+   ],
+   "RetNet_defaultHP": [
+    1,
+    3,
+    0,
+    2,
+    4
+   ],
+   "SpatialMultRetNet_defaultHP": [
+    1,
+    4,
+    2,
+    3,
+    0
+   ]
+  },
+  "frozen_uni2h_SpatialMultRetNet_bestHP": [
+   0.9488959956787859,
+   0.9548184585639955,
+   0.9565638794155854,
+   0.9545019149036141,
+   0.9501314129052203
+  ],
+  "lora_stage2_direct": [
+   0.9531404551178997,
+   0.9530354308764967,
+   0.958548723201394,
+   0.9591734298340241,
+   0.9577560923015371
+  ]
+ },
+ "checks": [
+  {
+   "check": "README lists 9 sha256 hashes",
+   "pass": true,
+   "detail": "lora_extraction_progress.json, lora_fold0_predictions.json, lora_fold1_predictions.json, lora_fold2_predictions.json, lora_fold3_predictions.json, lora_fold4_predictions.json, lora_training_results.json, v20_fold_progress.json, v20_lora_features_results.json"
+  },
+  {
+   "check": "sha256 v20_lora_features_results.json == README",
+   "pass": true,
+   "detail": "4ac65bc62886"
+  },
+  {
+   "check": "sha256 lora_training_results.json == README",
+   "pass": true,
+   "detail": "963150e09cb1"
+  },
+  {
+   "check": "sha256 lora_fold0_predictions.json == README",
+   "pass": true,
+   "detail": "7b0c4efcd407"
+  },
+  {
+   "check": "sha256 lora_fold1_predictions.json == README",
+   "pass": true,
+   "detail": "e7ac61be98e7"
+  },
+  {
+   "check": "sha256 lora_fold2_predictions.json == README",
+   "pass": true,
+   "detail": "530bd49d1935"
+  },
+  {
+   "check": "sha256 lora_fold3_predictions.json == README",
+   "pass": true,
+   "detail": "1aa39e69c3d2"
+  },
+  {
+   "check": "sha256 lora_fold4_predictions.json == README",
+   "pass": true,
+   "detail": "a20ae573bde7"
+  },
+  {
+   "check": "Stage-2 fold_metrics carry the explicit folds 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "lora_fold0_predictions.json reproduces Stage-2 fold_metrics[fold=0].qwk",
+   "pass": true,
+   "detail": "0.953140 vs 0.953140"
+  },
+  {
+   "check": "lora_fold1_predictions.json reproduces Stage-2 fold_metrics[fold=1].qwk",
+   "pass": true,
+   "detail": "0.953035 vs 0.953035"
+  },
+  {
+   "check": "lora_fold2_predictions.json reproduces Stage-2 fold_metrics[fold=2].qwk",
+   "pass": true,
+   "detail": "0.958549 vs 0.958549"
+  },
+  {
+   "check": "lora_fold3_predictions.json reproduces Stage-2 fold_metrics[fold=3].qwk",
+   "pass": true,
+   "detail": "0.959173 vs 0.959173"
+  },
+  {
+   "check": "lora_fold4_predictions.json reproduces Stage-2 fold_metrics[fold=4].qwk",
+   "pass": true,
+   "detail": "0.957756 vs 0.957756"
+  },
+  {
+   "check": "fold sets disjoint, union = 9,128 slides",
+   "pass": true,
+   "detail": "[1803, 1787, 1816, 1933, 1789]"
+  },
+  {
+   "check": "Stage-4 file holds the 12 configurations",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "ABMIL_bestHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "DualBranch_bestHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "SpatialMult_bestHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "SpatialAdd_bestHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "RetNet_bestHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "SpatialMultRetNet_bestHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "ABMIL_defaultHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "DualBranch_defaultHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "SpatialMult_defaultHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "SpatialAdd_defaultHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "RetNet_defaultHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "SpatialMultRetNet_defaultHP: 5 values; stored mean and population std reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "notebook has exactly one run_stage_4 cell",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "run_stage_4 source contains: fold_qwks = [fold_qwks_dict[str(f)] for f in range(5)]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "run_stage_4 source contains: fold_qwks_dict[str(fold)] = best_qwk_f",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "run_stage_4 source contains: val_df = df[df['kfold'] == fold].reset_index(drop=True)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "run_stage_4 source contains: df = load_labels()",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log: 'Available LoRA features: 9128'",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log: 'Fold k: QWK=' lines of the last run (SpatialAdd_bestHP) are folds 0-4 in order",
+   "pass": true,
+   "detail": "[(0, 0.9475), (1, 0.9433), (2, 0.9443), (3, 0.9511), (4, 0.9496)]"
+  },
+  {
+   "check": "logged fold QWKs == stored list at the same fold index (4 dp)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line ABMIL_bestHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line DualBranch_bestHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line SpatialMult_bestHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line SpatialAdd_bestHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line RetNet_bestHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line SpatialMultRetNet_bestHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line ABMIL_defaultHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line DualBranch_defaultHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line SpatialMult_defaultHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line SpatialAdd_defaultHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line RetNet_defaultHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-4 log summary line SpatialMultRetNet_defaultHP == stored mean / population std",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI ABMIL_bestHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI ABMIL_bestHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI ABMIL_bestHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [3, 2, 1, 0, 4]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI DualBranch_bestHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI DualBranch_bestHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI DualBranch_bestHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [0, 3, 4, 1, 2]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMult_bestHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMult_bestHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMult_bestHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [4, 2, 0, 1, 3]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialAdd_bestHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialAdd_bestHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialAdd_bestHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [1, 3, 2, 0, 4]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI RetNet_bestHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI RetNet_bestHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI RetNet_bestHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [4, 1, 0, 3, 2]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMultRetNet_bestHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMultRetNet_bestHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMultRetNet_bestHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [1, 3, 2, 0, 4]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI ABMIL_defaultHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": "fold 4: ABMIL_defaultHP_fold4_predictions (1).json QWK 0.926655 matches; ABMIL_defaultHP_fold4_predictions.json QWK 0.928244 matches no stored value"
+  },
+  {
+   "check": "UNI ABMIL_defaultHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI ABMIL_defaultHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [0, 1, 2, 3, 4]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI DualBranch_defaultHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI DualBranch_defaultHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI DualBranch_defaultHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [3, 4, 2, 0, 1]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMult_defaultHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMult_defaultHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMult_defaultHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [4, 2, 3, 1, 0]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialAdd_defaultHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialAdd_defaultHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialAdd_defaultHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [3, 4, 1, 2, 0]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI RetNet_defaultHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI RetNet_defaultHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI RetNet_defaultHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [1, 3, 0, 2, 4]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMultRetNet_defaultHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMultRetNet_defaultHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI SpatialMultRetNet_defaultHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [1, 4, 2, 3, 0]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI2-h SpatialMultRetNet_bestHP: each fold's per-slide file reproduces a stored fold QWK (|diff| < 1e-9)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI2-h SpatialMultRetNet_bestHP: fold k slide set and labels == LoRA fold k for k = 0-4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "UNI2-h SpatialMultRetNet_bestHP: the five per-file QWKs == stored multiset; stored-list position of folds 0-4 = [0, 4, 1, 3, 2]",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "independent copy r2c1_c2_results.json (Drive files, fold order, 6 dp) == local: UNI ABMIL_bestHP",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "independent copy r2c1_c2_results.json (Drive files, fold order, 6 dp) == local: UNI DualBranch_bestHP",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "independent copy r2c1_c2_results.json (Drive files, fold order, 6 dp) == local: UNI SpatialMult_bestHP",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "independent copy r2c1_c2_results.json (Drive files, fold order, 6 dp) == local: UNI SpatialAdd_bestHP",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "independent copy r2c1_c2_results.json (Drive files, fold order, 6 dp) == local: UNI RetNet_bestHP",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "independent copy r2c1_c2_results.json (Drive files, fold order, 6 dp) == local: UNI SpatialMultRetNet_bestHP",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "independent copy r2c1_c2_results.json (Drive files, fold order, 6 dp) == local: UNI2-h SpatialMultRetNet_bestHP",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "r2c1_c2 cross-check covered 7 configurations",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Table tab:main_factorial UNI ABMIL_bestHP mean +/- sd(ddof=1)",
+   "pass": true,
+   "detail": "computed ('0.9456', '0.0043'), printed ('0.9456', '0.0043')"
+  },
+  {
+   "check": "Table tab:main_factorial UNI DualBranch_bestHP mean +/- sd(ddof=1)",
+   "pass": true,
+   "detail": "computed ('0.9499', '0.0078'), printed ('0.9499', '0.0078')"
+  },
+  {
+   "check": "Table tab:main_factorial UNI SpatialMult_bestHP mean +/- sd(ddof=1)",
+   "pass": true,
+   "detail": "computed ('0.9386', '0.0182'), printed ('0.9386', '0.0182')"
+  },
+  {
+   "check": "Table tab:main_factorial UNI SpatialAdd_bestHP mean +/- sd(ddof=1)",
+   "pass": true,
+   "detail": "computed ('0.9494', '0.0048'), printed ('0.9494', '0.0048')"
+  },
+  {
+   "check": "Table tab:main_factorial UNI RetNet_bestHP mean +/- sd(ddof=1)",
+   "pass": true,
+   "detail": "computed ('0.9543', '0.0051'), printed ('0.9543', '0.0051')"
+  },
+  {
+   "check": "Table tab:main_factorial UNI SpatialMultRetNet_bestHP mean +/- sd(ddof=1)",
+   "pass": true,
+   "detail": "computed ('0.9519', '0.0050'), printed ('0.9519', '0.0050')"
+  },
+  {
+   "check": "Table tab:main_factorial UNI2-h SpatialMultRetNet_bestHP mean +/- sd(ddof=1)",
+   "pass": true,
+   "detail": "computed ('0.9530', '0.0033'), printed ('0.9530', '0.0033')"
+  },
+  {
+   "check": "BH: statsmodels fdr_bh == manual step-up (frozen family, on p_t and on p_NB)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Table tab:decomp_stats_uni: eleven rows parsed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row RetNet vs ABMIL (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('+0.00870', '0.0014', '0.0625', '+3.513', '0.0156')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row SpatialMultRetNet vs RetNet (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('-0.00235', '0.0179', '0.0625', '-1.734', '0.0983')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row RetNet vs DualBranch (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('+0.00439', '0.0332', '0.0625', '+1.427', '0.1217')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row SpatialMult vs RetNet (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('-0.01566', '0.0803', '0.0625', '-1.042', '0.1989')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row SpatialMultRetNet vs SpatialMult (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('+0.01331', '0.1143', '0.0625', '+0.901', '0.1989')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row RetNet vs ABMIL (defaultHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('+0.00942', '0.1208', '0.1875', '+0.879', '0.1989')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row DualBranch vs ABMIL (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('+0.00431', '0.1265', '0.3125', '+0.861', '0.1989')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row SpatialMult vs DualBranch (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('-0.01127', '0.1487', '0.1875', '-0.799', '0.2045')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row SpatialAdd vs SpatialMult (bestHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('+0.01082', '0.2515', '0.8125', '+0.599', '0.3074')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row SpatialAdd vs SpatialMult (defaultHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('+0.00578', '0.5325', '0.6250', '+0.305', '0.5858')"
+  },
+  {
+   "check": "Table tab:decomp_stats_uni row SpatialMult vs DualBranch (defaultHP): dQWK, p_t, p_W, d, q_BH",
+   "pass": true,
+   "detail": "computed ('-0.00052', '0.8832', '0.8125', '-0.070', '0.8832')"
+  },
+  {
+   "check": "frozen C1 Nadeau-Bengio p and BH q: 'the first row gives $p=0.0064$ and $q_{\\mathrm{BH}}=0.0699$' printed in Ch3",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "frozen C1 Nadeau-Bengio 95% CI: '$p=0.0064$ (95\\% CI $[+0.0041, +0.0133]$)' printed in Ch3",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "bootstrap + NB CI of RetNet - DualBranch (bestHP): 'difference is $[+0.0021, +0.0068]$, whereas the corresponding Nadeau--Bengio interval $[-0.0013, +0.0101]$' printed in Ch3",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "bootstrap CI of SpatialMult - DualBranch (bestHP): 'has CI $[+0.0021, +0.0068]$ and \\texttt{SpatialMult\\_bestHP} minus \\texttt{DualBranch\\_bestHP} has CI $[-0.0222, -0.0004]$' printed in Ch3",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "best LoRA configuration SpatialAdd_defaultHP: '$0.9529 \\pm 0.0026$' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "best LoRA configuration SpatialAdd_defaultHP: '$0.9529 \\pm 0.0026$' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "SpatialAdd_defaultHP is the best of the 12 LoRA configurations",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Stage-2 direct classifier: '$0.9563 \\pm 0.0030$' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "decision-rule baseline UNI2-h SpatialMultRetNet_bestHP: '$0.9530 \\pm 0.0033$' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "decision-rule baseline UNI2-h SpatialMultRetNet_bestHP: '$0.9530 \\pm 0.0033$' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Contrast 1 frozen and LoRA: 'shifts from $+0.0087$ on the frozen encoder to $+0.0046$ on the' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Contrast 1 frozen and LoRA: 'shifts from $+0.0087$ on the frozen encoder to $+0.0046$ on the' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Contrast 1 reduction: 'approximately~$48\\%$' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Contrast 1 reduction: 'approximately~$48\\%$' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "top bestHP slot RetNet on both feature sets; SpatialMult second on LoRA",
+   "pass": true,
+   "detail": "frozen ['RetNet', 'SpatialMultRetNet', 'DualBranch', 'SpatialAdd', 'ABMIL', 'SpatialMult'] | LoRA ['RetNet', 'SpatialMult', 'SpatialMultRetNet', 'SpatialAdd', 'DualBranch', 'ABMIL']"
+  },
+  {
+   "check": "top slot: '(\\texttt{RetNet\\_bestHP}, $0.9503$, just ahead of \\texttt{SpatialMult\\_bestHP} at $0.9501$)' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "top slot: '(\\texttt{RetNet\\_bestHP}, $0.9503$, just ahead of \\texttt{SpatialMult\\_bestHP} at $0.9501$)' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Kendall tau of the six bestHP ranks: 'Kendall $\\tau = 0.33$' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "Kendall tau of the six bestHP ranks: 'Kendall $\\tau = 0.33$' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "six paired differences inside +/-0.012; largest negative RetNet, largest positive SpatialMult",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "largest negative shift: '\\texttt{RetNet} ($-0.0040$)' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "largest negative shift: '\\texttt{RetNet} ($-0.0040$)' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "largest positive shift: '\\texttt{SpatialMult} ($+0.0115$)' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "largest positive shift: '\\texttt{SpatialMult} ($+0.0115$)' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "range of the six differences: 'range from $-0.0040$ to $+0.0115$' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "bound of the six differences: '$\\pm 0.012$' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "bound of the six differences: '$\\pm 0.012$' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "LoRA band: '[$0.9317$, $0.9529$]' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "LoRA band width: '$0.021$ QWK band' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "pre-registered contrast rule quoted verbatim: 'A sign-flip on either contrast, or a magnitude reduction by more than half of the original effect, would be evidence that the frozen-encoder result is encoder-state-specific and would limit the generalisation claim of Contribution~3.' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "TOST paired difference: 'paired difference of $-0.0001$ QWK' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "TOST naive p: '(\\textit{p}~$= 0.031$)' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "TOST naive p: '(\\textit{p}~$= 0.031$)' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "TOST Nadeau-Bengio p: '(\\textit{p}~$= 0.081$)' printed in App1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "TOST Nadeau-Bengio p: '(\\textit{p}~$= 0.081$)' printed in Ch4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "internal check, LoRA - frozen ABMIL_bestHP",
+   "pass": true,
+   "detail": "computed ('0.9457', '0.0066', '0.9456', '+0.0001', '0.0035', '3', '0.9333', '0.9555')"
+  },
+  {
+   "check": "internal check, LoRA - frozen DualBranch_bestHP",
+   "pass": true,
+   "detail": "computed ('0.9464', '0.0061', '0.9499', '-0.0035', '0.0035', '1', '0.0947', '0.2197')"
+  },
+  {
+   "check": "internal check, LoRA - frozen SpatialMult_bestHP",
+   "pass": true,
+   "detail": "computed ('0.9501', '0.0053', '0.9386', '+0.0115', '0.0164', '3', '0.1913', '0.3541')"
+  },
+  {
+   "check": "internal check, LoRA - frozen SpatialAdd_bestHP",
+   "pass": true,
+   "detail": "computed ('0.9472', '0.0034', '0.9494', '-0.0022', '0.0049', '1', '0.3659', '0.5343')"
+  },
+  {
+   "check": "internal check, LoRA - frozen RetNet_bestHP",
+   "pass": true,
+   "detail": "computed ('0.9503', '0.0046', '0.9543', '-0.0040', '0.0025', '1', '0.0221', '0.0726')"
+  },
+  {
+   "check": "internal check, LoRA - frozen SpatialMultRetNet_bestHP",
+   "pass": true,
+   "detail": "computed ('0.9498', '0.0024', '0.9519', '-0.0021', '0.0036', '2', '0.2595', '0.4309')"
+  },
+  {
+   "check": "internal check, LoRA - frozen ABMIL_defaultHP",
+   "pass": true,
+   "detail": "computed ('0.9317', '0.0057', '0.9323', '-0.0006', '0.0041', '3', '0.7664', '0.8424')"
+  },
+  {
+   "check": "internal check, LoRA - frozen DualBranch_defaultHP",
+   "pass": true,
+   "detail": "computed ('0.9362', '0.0087', '0.9364', '-0.0001', '0.0041', '3', '0.9458', '0.9639')"
+  },
+  {
+   "check": "internal check, LoRA - frozen SpatialMult_defaultHP",
+   "pass": true,
+   "detail": "computed ('0.9516', '0.0041', '0.9358', '+0.0157', '0.0116', '4', '0.0383', '0.1124')"
+  },
+  {
+   "check": "internal check, LoRA - frozen SpatialAdd_defaultHP",
+   "pass": true,
+   "detail": "computed ('0.9529', '0.0026', '0.9416', '+0.0113', '0.0138', '3', '0.1427', '0.2916')"
+  },
+  {
+   "check": "internal check, LoRA - frozen RetNet_defaultHP",
+   "pass": true,
+   "detail": "computed ('0.9411', '0.0017', '0.9417', '-0.0006', '0.0112', '2', '0.9105', '0.9403')"
+  },
+  {
+   "check": "internal check, LoRA - frozen SpatialMultRetNet_defaultHP",
+   "pass": true,
+   "detail": "computed ('0.9419', '0.0052', '0.9418', '+0.0002', '0.0060', '2', '0.9581', '0.9720')"
+  },
+  {
+   "check": "internal check: all 12 per-configuration lines parsed and reproduced",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "internal check, LoRA C1",
+   "pass": true,
+   "detail": "computed ('+0.00456', '0.0034', '5', '0.0415', '0.1196')"
+  },
+  {
+   "check": "internal check, frozen C1",
+   "pass": true,
+   "detail": "computed ('+0.00870', '0.0025', '5', '0.0014', '0.0064')"
+  },
+  {
+   "check": "internal check, difference-in-differences",
+   "pass": true,
+   "detail": "computed ('-0.00414', '0.0048', '0.1236', '0.2644')"
+  },
+  {
+   "check": "BH: statsmodels fdr_bh == manual step-up (LoRA family, on p_t and on p_NB)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "LaTeX draft: no '{,}' separator, no em dash, no '$p$-' pattern, 9 columns per data row",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "A_contrast1": {
+  "C1_frozen": {
+   "diffs_fold0to4": [
+    0.007099882993139572,
+    0.0059508360865956345,
+    0.011736988467058729,
+    0.010826435663114697,
+    0.007883310523699505
+   ],
+   "mean": 0.008699490746721628,
+   "sd_ddof1": 0.0024764028671052304,
+   "n_pos": 5,
+   "p_t": 0.001419049294981924,
+   "p_W_exact": 0.0625,
+   "d_z": 3.512954560939764,
+   "boot_ci95": [
+    0.006796949736633984,
+    0.010602031756809271
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.006796949736633984,
+    0.01062745681148609
+   ],
+   "p_NB": 0.006354102943803386,
+   "ci95_NB": [
+    0.004087200319021901,
+    0.013311781174421354
+   ],
+   "ci95_t": [
+    0.005624630461588477,
+    0.011774351031854778
+   ],
+   "p_NB_foldsize_ratio": 0.0063558917051252635
+  },
+  "C1_lora": {
+   "diffs_fold0to4": [
+    0.0015370894523397682,
+    0.005278006359742626,
+    0.003753537798962814,
+    0.0020934365041814784,
+    0.010126927208785497
+   ],
+   "mean": 0.0045577994648024365,
+   "sd_ddof1": 0.003441601822136499,
+   "n_pos": 5,
+   "p_t": 0.041501637997963046,
+   "p_W_exact": 0.0625,
+   "d_z": 1.3243250382675058,
+   "boot_ci95": [
+    0.0022029179424010613,
+    0.007550444898056119
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.0022029179424010613,
+    0.007550444898056119
+   ],
+   "p_NB": 0.11959465896933659,
+   "ci95_NB": [
+    -0.001852170153246624,
+    0.010967769082851497
+   ],
+   "ci95_t": [
+    0.0002844863861030632,
+    0.00883111254350181
+   ],
+   "p_NB_foldsize_ratio": 0.11961595443232476
+  },
+  "C1_change_lora_minus_frozen": {
+   "diffs_fold0to4": [
+    -0.005562793540799804,
+    -0.0006728297268530081,
+    -0.007983450668095915,
+    -0.008732999158933219,
+    0.0022436166850859918
+   ],
+   "mean": -0.0041416912819191905,
+   "sd_ddof1": 0.004760879990997453,
+   "n_pos": 1,
+   "p_t": 0.12362951173769447,
+   "p_W_exact": 0.1875,
+   "d_z": -0.8699423824483893,
+   "boot_ci95": [
+    -0.007799138638971614,
+    -0.00038508606793818956
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.007799138638971614,
+    -0.00038508606793818956
+   ],
+   "p_NB": 0.26443740054680176,
+   "ci95_NB": [
+    -0.013008811208804505,
+    0.004725428644966124
+   ],
+   "ci95_t": [
+    -0.0100531045665094,
+    0.0017697220026710193
+   ],
+   "p_NB_foldsize_ratio": 0.26446926217819217
+  },
+  "q_frozen_family_t_nb": [
+   0.015609542244801164,
+   0.06989513238183724
+  ],
+  "q_lora_family_t_nb": [
+   0.0913036035955187,
+   0.2631082497325405
+  ],
+  "reduction_1_minus_lora_over_frozen": 0.4760843367159133,
+  "half_effect_change": -0.004349745373360814,
+  "half_effect_inside_boot_ci_of_change": true,
+  "zero_inside_boot_ci_of_change": false,
+  "contrast2_uni2h": "not computable: no LoRA-UNI2-h run"
+ },
+ "B_eleven_lora": [
+  {
+   "id": "a",
+   "comparison": "RetNet vs ABMIL (bestHP)",
+   "diffs_fold0to4": [
+    0.0015370894523397682,
+    0.005278006359742626,
+    0.003753537798962814,
+    0.0020934365041814784,
+    0.010126927208785497
+   ],
+   "mean": 0.0045577994648024365,
+   "sd_ddof1": 0.003441601822136499,
+   "n_pos": 5,
+   "p_t": 0.041501637997963046,
+   "p_W_exact": 0.0625,
+   "d_z": 1.3243250382675058,
+   "boot_ci95": [
+    0.0022029179424010613,
+    0.007550444898056119
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.0022029179424010613,
+    0.007550444898056119
+   ],
+   "p_NB": 0.11959465896933659,
+   "ci95_NB": [
+    -0.001852170153246624,
+    0.010967769082851497
+   ],
+   "ci95_t": [
+    0.0002844863861030632,
+    0.00883111254350181
+   ],
+   "p_NB_foldsize_ratio": 0.11961595443232476,
+   "q_BH_t": 0.0913036035955187,
+   "q_BH_NB": 0.2631082497325405,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "b",
+   "comparison": "DualBranch vs ABMIL (bestHP)",
+   "diffs_fold0to4": [
+    -0.0037833498498934803,
+    0.002128492331040288,
+    0.002118253207915921,
+    0.00023091690274668064,
+    0.0028863778796787143
+   ],
+   "mean": 0.0007161380942976248,
+   "sd_ddof1": 0.002699603830777026,
+   "n_pos": 4,
+   "p_t": 0.5849783916406432,
+   "p_W_exact": 0.625,
+   "d_z": 0.26527525488489884,
+   "boot_ci95": [
+    -0.0016465509534510092,
+    0.002429598725870785
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0016465509534510092,
+    0.002429598725870785
+   ],
+   "p_NB": 0.7126950952433415,
+   "ci95_NB": [
+    -0.004311863234835584,
+    0.005744139423430834
+   ],
+   "ci95_t": [
+    -0.0026358627917911813,
+    0.004068138980386431
+   ],
+   "p_NB_foldsize_ratio": 0.7127163215567767,
+   "q_BH_t": 0.8043452885058845,
+   "q_BH_NB": 0.9297446947597643,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "c",
+   "comparison": "RetNet vs DualBranch (bestHP)",
+   "diffs_fold0to4": [
+    0.005320439302233249,
+    0.003149514028702338,
+    0.0016352845910468927,
+    0.0018625196014347978,
+    0.007240549329106782
+   ],
+   "mean": 0.003841661370504812,
+   "sd_ddof1": 0.0023980925807956946,
+   "n_pos": 5,
+   "p_t": 0.023124195735028084,
+   "p_W_exact": 0.0625,
+   "d_z": 1.601965412540552,
+   "boot_ci95": [
+    0.0020290244827331438,
+    0.0057809213781976785
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.0020290244827331438,
+    0.0057809213781976785
+   ],
+   "p_NB": 0.0753256138673162,
+   "ci95_NB": [
+    -0.0006247764623955447,
+    0.008308099203405169
+   ],
+   "ci95_t": [
+    0.0008640361485712407,
+    0.006819286592438383
+   ],
+   "p_NB_foldsize_ratio": 0.07534101012461171,
+   "q_BH_t": 0.06359153827132723,
+   "q_BH_NB": 0.20714543813511957,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "d",
+   "comparison": "SpatialMult vs DualBranch (bestHP)",
+   "diffs_fold0to4": [
+    0.00384924233260564,
+    0.003786819584755352,
+    0.004672805107404421,
+    0.0018512421012627511,
+    0.004342680854167558
+   ],
+   "mean": 0.0037005579960391445,
+   "sd_ddof1": 0.0010962553971121194,
+   "n_pos": 5,
+   "p_t": 0.001650467210662978,
+   "p_W_exact": 0.0625,
+   "d_z": 3.37563491663309,
+   "boot_ci95": [
+    0.0027366453485422326,
+    0.00437604285114992
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.0027366453485422326,
+    0.00440870570481493
+   ],
+   "p_NB": 0.007322658692370777,
+   "ci95_NB": [
+    0.0016587867068931068,
+    0.005742329285185182
+   ],
+   "ci95_t": [
+    0.0023393771366084525,
+    0.005061738855469837
+   ],
+   "p_NB_foldsize_ratio": 0.007324702345346523,
+   "q_BH_t": 0.01815513931729276,
+   "q_BH_NB": 0.08054924561607854,
+   "bonferroni_t_pass": true
+  },
+  {
+   "id": "e",
+   "comparison": "SpatialMult vs RetNet (bestHP)",
+   "diffs_fold0to4": [
+    -0.0014711969696276084,
+    0.0006373055560530139,
+    0.003037520516357528,
+    -1.127750017204665e-05,
+    -0.0028978684749392247
+   ],
+   "mean": -0.00014110337446566757,
+   "sd_ddof1": 0.002241390631457351,
+   "n_pos": 2,
+   "p_t": 0.8948573712746895,
+   "p_W_exact": 1.0,
+   "d_z": -0.06295349524769014,
+   "boot_ci95": [
+    -0.0019054993676784538,
+    0.0015973915401748195
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0017565312706899316,
+    0.001655734027099598
+   ],
+   "p_NB": 0.9297446947597643,
+   "ci95_NB": [
+    -0.004315684453953367,
+    0.004033477705022032
+   ],
+   "ci95_t": [
+    -0.002924157427457467,
+    0.0026419506785261317
+   ],
+   "p_NB_foldsize_ratio": 0.929750208481922,
+   "q_BH_t": 0.8948573712746895,
+   "q_BH_NB": 0.9297446947597643,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "f",
+   "comparison": "SpatialMultRetNet vs RetNet (bestHP)",
+   "diffs_fold0to4": [
+    0.0020976760583213405,
+    -0.0008959762859532816,
+    0.003079813143833432,
+    -0.0055626377593462895,
+    -0.0010617642022271445
+   ],
+   "mean": -0.0004685778090743886,
+   "sd_ddof1": 0.003378635952519365,
+   "n_pos": 2,
+   "p_t": 0.771957802839551,
+   "p_W_exact": 1.0,
+   "d_z": -0.1386884576081604,
+   "boot_ci95": [
+    -0.0031304002843889345,
+    0.0018918004236712527
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0031304002843889345,
+    0.0020550702575188986
+   ],
+   "p_NB": 0.8463070462419682,
+   "ci95_NB": [
+    -0.0067612737469946674,
+    0.00582411812884589
+   ],
+   "ci95_t": [
+    -0.004663708434354574,
+    0.0037265528162057967
+   ],
+   "p_NB_foldsize_ratio": 0.8463189398470347,
+   "q_BH_t": 0.8948573712746895,
+   "q_BH_NB": 0.9297446947597643,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "g",
+   "comparison": "SpatialMultRetNet vs SpatialMult (bestHP)",
+   "diffs_fold0to4": [
+    0.003568873027948949,
+    -0.0015332818420062955,
+    4.22926274759039e-05,
+    -0.005551360259174243,
+    0.0018361042727120802
+   ],
+   "mean": -0.00032747443460872104,
+   "sd_ddof1": 0.003490783531808643,
+   "n_pos": 3,
+   "p_t": 0.8440996887377727,
+   "p_W_exact": 1.0,
+   "d_z": -0.09381115489537392,
+   "boot_ci95": [
+    -0.0032702516693633886,
+    0.002182658023759454
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0032702516693633886,
+    0.002182658023759454
+   ],
+   "p_NB": 0.895541089267319,
+   "ci95_NB": [
+    -0.0068290447900627976,
+    0.006174095920845356
+   ],
+   "ci95_t": [
+    -0.004661854671578105,
+    0.004006905802360663
+   ],
+   "p_NB_foldsize_ratio": 0.8955492508089058,
+   "q_BH_t": 0.8948573712746895,
+   "q_BH_NB": 0.9297446947597643,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "h",
+   "comparison": "SpatialAdd vs SpatialMult (bestHP)",
+   "diffs_fold0to4": [
+    0.001766778966467042,
+    -0.005811468405989784,
+    -0.0073051719795358405,
+    -0.00726181160658812,
+    0.003898179814008418
+   ],
+   "mean": -0.002942698642327657,
+   "sd_ddof1": 0.005359397069048412,
+   "n_pos": 2,
+   "p_t": 0.28684450957904656,
+   "p_W_exact": 0.3125,
+   "d_z": -0.549072704338764,
+   "boot_ci95": [
+    -0.006989087115647541,
+    0.001239901360380835
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.006989087115647541,
+    0.001239901360380835
+   ],
+   "p_NB": 0.4590248965453253,
+   "ci95_NB": [
+    -0.012924554231401956,
+    0.007039156946746642
+   ],
+   "ci95_t": [
+    -0.009597269035043855,
+    0.0037118717503885424
+   ],
+   "p_NB_foldsize_ratio": 0.4590577304499156,
+   "q_BH_t": 0.5258816008949188,
+   "q_BH_NB": 0.8415456436664298,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "i",
+   "comparison": "RetNet vs ABMIL (defaultHP)",
+   "diffs_fold0to4": [
+    0.01395979570969097,
+    0.014190910024522219,
+    0.006442722804734458,
+    0.0014397092593861904,
+    0.010955350003104436
+   ],
+   "mean": 0.009397697560287655,
+   "sd_ddof1": 0.005437723788220975,
+   "n_pos": 5,
+   "p_t": 0.01807840859194086,
+   "p_W_exact": 0.0625,
+   "d_z": 1.7282410667207204,
+   "boot_ci95": [
+    0.00499055212148305,
+    0.013451352294306163
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.0049443292585168,
+    0.013451352294306163
+   ],
+   "p_NB": 0.06156688277524807,
+   "ci95_NB": [
+    -0.0007300412297276248,
+    0.019525436350302933
+   ],
+   "ci95_t": [
+    0.002645871700277468,
+    0.01614952342029784
+   ],
+   "p_NB_foldsize_ratio": 0.061580081579083595,
+   "q_BH_t": 0.06359153827132723,
+   "q_BH_NB": 0.20714543813511957,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "j",
+   "comparison": "SpatialMult vs DualBranch (defaultHP)",
+   "diffs_fold0to4": [
+    0.016349557473650966,
+    0.009271404959101615,
+    0.02001469102224651,
+    0.008131094374318248,
+    0.022956714614449703
+   ],
+   "mean": 0.01534469248875341,
+   "sd_ddof1": 0.006513108703936956,
+   "n_pos": 5,
+   "p_t": 0.006220119870422895,
+   "p_W_exact": 0.0625,
+   "d_z": 2.3559705796831025,
+   "boot_ci95": [
+    0.010230911228098138,
+    0.02045847374940868
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.010230911228098138,
+    0.02045847374940868
+   ],
+   "p_NB": 0.024625708371447858,
+   "ci95_NB": [
+    0.00321405359765424,
+    0.02747533137985258
+   ],
+   "ci95_t": [
+    0.0072575998946872965,
+    0.023431785082819522
+   ],
+   "p_NB_foldsize_ratio": 0.024631866118577116,
+   "q_BH_t": 0.03421065928732592,
+   "q_BH_NB": 0.1354413960429632,
+   "bonferroni_t_pass": false
+  },
+  {
+   "id": "k",
+   "comparison": "SpatialAdd vs SpatialMult (defaultHP)",
+   "diffs_fold0to4": [
+    0.0028846774186072066,
+    0.004440545419143405,
+    -0.006468065094750841,
+    0.0001601172880713042,
+    0.005576735125151
+   ],
+   "mean": 0.0013188020312444148,
+   "sd_ddof1": 0.004803776944051219,
+   "n_pos": 4,
+   "p_t": 0.5724904399941573,
+   "p_W_exact": 0.625,
+   "d_z": 0.2745344021182249,
+   "boot_ci95": [
+    -0.002733468574206044,
+    0.004583847701439203
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.002733468574206044,
+    0.004583847701439203
+   ],
+   "p_NB": 0.7033206072094318,
+   "ci95_NB": [
+    -0.007628213299000147,
+    0.010265817361488976
+   ],
+   "ci95_t": [
+    -0.004645874855585292,
+    0.007283478918074122
+   ],
+   "p_NB_foldsize_ratio": 0.703342428342189,
+   "q_BH_t": 0.8043452885058845,
+   "q_BH_NB": 0.9297446947597643,
+   "bonferroni_t_pass": false
+  }
+ ],
+ "B_eleven_frozen_reproduced": [
+  {
+   "id": "a",
+   "comparison": "RetNet vs ABMIL (bestHP)",
+   "diffs_fold0to4": [
+    0.007099882993139572,
+    0.0059508360865956345,
+    0.011736988467058729,
+    0.010826435663114697,
+    0.007883310523699505
+   ],
+   "mean": 0.008699490746721628,
+   "sd_ddof1": 0.0024764028671052304,
+   "n_pos": 5,
+   "p_t": 0.001419049294981924,
+   "p_W_exact": 0.0625,
+   "d_z": 3.512954560939764,
+   "boot_ci95": [
+    0.006796949736633984,
+    0.010602031756809271
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.006796949736633984,
+    0.01062745681148609
+   ],
+   "p_NB": 0.006354102943803386,
+   "ci95_NB": [
+    0.004087200319021901,
+    0.013311781174421354
+   ],
+   "ci95_t": [
+    0.005624630461588477,
+    0.011774351031854778
+   ],
+   "p_NB_foldsize_ratio": 0.0063558917051252635,
+   "q_BH_t": 0.015609542244801164,
+   "q_BH_NB": 0.06989513238183724
+  },
+  {
+   "id": "b",
+   "comparison": "DualBranch vs ABMIL (bestHP)",
+   "diffs_fold0to4": [
+    0.004415119249391863,
+    -0.001211403411311096,
+    0.008494576873124049,
+    0.009996957654418992,
+    -0.00014878433582909967
+   ],
+   "mean": 0.004309293205958941,
+   "sd_ddof1": 0.005005743499044767,
+   "n_pos": 3,
+   "p_t": 0.1265465201405278,
+   "p_W_exact": 0.3125,
+   "d_z": 0.8608697602626407,
+   "boot_ci95": [
+    0.00033894875102229437,
+    0.00827963766089559
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.00033894875102229437,
+    0.00827963766089559
+   ],
+   "p_NB": 0.2686882762253554,
+   "ci95_NB": [
+    -0.005013884024550715,
+    0.013632470436468598
+   ],
+   "ci95_t": [
+    -0.0019061582810474967,
+    0.010524744692965379
+   ],
+   "p_NB_foldsize_ratio": 0.2687202949027148,
+   "q_BH_t": 0.19885881736368655,
+   "q_BH_NB": 0.4121278190432427
+  },
+  {
+   "id": "c",
+   "comparison": "RetNet vs DualBranch (bestHP)",
+   "diffs_fold0to4": [
+    0.002684763743747709,
+    0.0071622394979067305,
+    0.00324241159393468,
+    0.0008294780086957054,
+    0.008032094859528605
+   ],
+   "mean": 0.004390197540762686,
+   "sd_ddof1": 0.0030762100584315376,
+   "n_pos": 5,
+   "p_t": 0.03317840683943456,
+   "p_W_exact": 0.0625,
+   "d_z": 1.4271449144799653,
+   "boot_ci95": [
+    0.002054179019764302,
+    0.0067886575640480505
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.002054179019764302,
+    0.0067886575640480505
+   ],
+   "p_NB": 0.10049441789175773,
+   "ci95_NB": [
+    -0.0013392313799374328,
+    0.010119626461462805
+   ],
+   "ci95_t": [
+    0.0005705782602959406,
+    0.00820981682122943
+   ],
+   "p_NB_foldsize_ratio": 0.10051336752483768,
+   "q_BH_t": 0.12165415841126005,
+   "q_BH_NB": 0.36847953226977836
+  },
+  {
+   "id": "d",
+   "comparison": "SpatialMult vs DualBranch (bestHP)",
+   "diffs_fold0to4": [
+    -0.0012811102669848529,
+    0.003122244512728356,
+    -0.02659603176709413,
+    -0.005453036779859088,
+    -0.02613815619794524
+   ],
+   "mean": -0.011269218099830992,
+   "sd_ddof1": 0.014112946155149565,
+   "n_pos": 1,
+   "p_t": 0.14872721922001406,
+   "p_W_exact": 0.1875,
+   "d_z": -0.798502167863728,
+   "boot_ci95": [
+    -0.022184282541987566,
+    -0.0003541536576744164
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.022184282541987566,
+    -0.0003541536576744164
+   ],
+   "p_NB": 0.29972932294054017,
+   "ci95_NB": [
+    -0.03755452382398722,
+    0.015016087624325235
+   ],
+   "ci95_t": [
+    -0.028792755249268474,
+    0.00625431904960649
+   ],
+   "p_NB_foldsize_ratio": 0.2997622750950154,
+   "q_BH_t": 0.20449992642751932,
+   "q_BH_NB": 0.4121278190432427
+  },
+  {
+   "id": "e",
+   "comparison": "SpatialMult vs RetNet (bestHP)",
+   "diffs_fold0to4": [
+    -0.003965874010732562,
+    -0.0040399949851783745,
+    -0.02983844336102881,
+    -0.006282514788554794,
+    -0.034170251057473844
+   ],
+   "mean": -0.015659415640593678,
+   "sd_ddof1": 0.015028073535332526,
+   "n_pos": 0,
+   "p_t": 0.08025146788691184,
+   "p_W_exact": 0.0625,
+   "d_z": -1.042010847483332,
+   "boot_ci95": [
+    -0.027277838303725745,
+    -0.004458850556075334
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.027277838303725745,
+    -0.004458850556075334
+   ],
+   "p_NB": 0.1953036149202335,
+   "ci95_NB": [
+    -0.04364914244736548,
+    0.01233031116617812
+   ],
+   "ci95_t": [
+    -0.03431923351177488,
+    0.003000402230587517
+   ],
+   "p_NB_foldsize_ratio": 0.195331814190987,
+   "q_BH_t": 0.19885881736368655,
+   "q_BH_NB": 0.4121278190432427
+  },
+  {
+   "id": "f",
+   "comparison": "SpatialMultRetNet vs RetNet (bestHP)",
+   "diffs_fold0to4": [
+    -0.0014015811234971975,
+    -0.002688279327382692,
+    -0.004516277026058724,
+    -0.00200586712303763,
+    -0.001123724053214814
+   ],
+   "mean": -0.0023471457306382115,
+   "sd_ddof1": 0.0013535903019999726,
+   "n_pos": 0,
+   "p_t": 0.017881078914564676,
+   "p_W_exact": 0.0625,
+   "d_z": -1.7340148840976692,
+   "boot_ci95": [
+    -0.0034721668917547356,
+    -0.0014112954952923307
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0035121130648502865,
+    -0.0014112954952923307
+   ],
+   "p_NB": 0.061010054237360854,
+   "ci95_NB": [
+    -0.004868202250104906,
+    0.0001739107888284832
+   ],
+   "ci95_t": [
+    -0.004027850076949341,
+    -0.0006664413843270819
+   ],
+   "p_NB_foldsize_ratio": 0.06102315988417756,
+   "q_BH_t": 0.09834593403010572,
+   "q_BH_NB": 0.3355552983054847
+  },
+  {
+   "id": "g",
+   "comparison": "SpatialMultRetNet vs SpatialMult (bestHP)",
+   "diffs_fold0to4": [
+    0.0025642928872353643,
+    0.0013517156577956824,
+    0.025322166334970087,
+    0.004276647665517164,
+    0.03304652700425903
+   ],
+   "mean": 0.013312269909955465,
+   "sd_ddof1": 0.014780856306787628,
+   "n_pos": 5,
+   "p_t": 0.11428977400223797,
+   "p_W_exact": 0.0625,
+   "d_z": 0.9006426714156092,
+   "boot_ci95": [
+    0.0024217329511158512,
+    0.02540520804699651
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.0024217329511158512,
+    0.02540520804699651
+   ],
+   "p_NB": 0.2505317093852892,
+   "ci95_NB": [
+    -0.014217015798186463,
+    0.040841555618097394
+   ],
+   "ci95_t": [
+    -0.005040587228805819,
+    0.03166512704871675
+   ],
+   "p_NB_foldsize_ratio": 0.2505630055071628,
+   "q_BH_t": 0.19885881736368655,
+   "q_BH_NB": 0.4121278190432427
+  },
+  {
+   "id": "h",
+   "comparison": "SpatialAdd vs SpatialMult (bestHP)",
+   "diffs_fold0to4": [
+    -0.0007778799504221112,
+    -0.005077612375005369,
+    0.029271745094120782,
+    -0.001037120115383816,
+    0.0316972569727898
+   ],
+   "mean": 0.010815277925219857,
+   "sd_ddof1": 0.018056597410900304,
+   "n_pos": 2,
+   "p_t": 0.2515015749660319,
+   "p_W_exact": 0.8125,
+   "d_z": 0.5989654462080963,
+   "boot_ci95": [
+    -0.0026014689862400965,
+    0.024665279179421275
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0026014689862400965,
+    0.024665279179421275
+   ],
+   "p_NB": 0.4223820369166864,
+   "ci95_NB": [
+    -0.022815062477541517,
+    0.04444561832798123
+   ],
+   "ci95_t": [
+    -0.011604949009954391,
+    0.0332355048603941
+   ],
+   "p_NB_foldsize_ratio": 0.4224155256920684,
+   "q_BH_t": 0.3073908138473723,
+   "q_BH_NB": 0.5162447117870611
+  },
+  {
+   "id": "i",
+   "comparison": "RetNet vs ABMIL (defaultHP)",
+   "diffs_fold0to4": [
+    0.002577060281369059,
+    -0.005941926959308952,
+    0.019062685055656114,
+    0.014163092345879869,
+    0.01721542003532439
+   ],
+   "mean": 0.009415266151784096,
+   "sd_ddof1": 0.010712858925849583,
+   "n_pos": 4,
+   "p_t": 0.12082879282764948,
+   "p_W_exact": 0.1875,
+   "d_z": 0.8788752112720852,
+   "boot_ci95": [
+    0.00039333988775331897,
+    0.017343860505568177
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.00039333988775331897,
+    0.017343860505568177
+   ],
+   "p_NB": 0.2603156361389836,
+   "ci95_NB": [
+    -0.010537390717310855,
+    0.029367923020879046
+   ],
+   "ci95_t": [
+    -0.0038865050942792044,
+    0.022717037397847396
+   ],
+   "p_NB_foldsize_ratio": 0.26034733849239716,
+   "q_BH_t": 0.19885881736368655,
+   "q_BH_NB": 0.4121278190432427
+  },
+  {
+   "id": "j",
+   "comparison": "SpatialMult vs DualBranch (defaultHP)",
+   "diffs_fold0to4": [
+    -0.005808100089751966,
+    0.0002629759564304335,
+    -0.0035078433621935634,
+    0.011984362563086659,
+    -0.005519800259685237
+   ],
+   "mean": -0.0005176810384227348,
+   "sd_ddof1": 0.007396981153189198,
+   "n_pos": 2,
+   "p_t": 0.8832258341825561,
+   "p_W_exact": 0.8125,
+   "d_z": -0.06998544780657409,
+   "boot_ci95": [
+    -0.005232728812213594,
+    0.006081592711187689
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.005232728812213594,
+    0.006081592711187689
+   ],
+   "p_NB": 0.9219308141220037,
+   "ci95_NB": [
+    -0.014294528828382945,
+    0.013259166751537476
+   ],
+   "ci95_t": [
+    -0.009702246231729541,
+    0.008666884154884072
+   ],
+   "p_NB_foldsize_ratio": 0.9219369357979088,
+   "q_BH_t": 0.8832258341825561,
+   "q_BH_NB": 0.9219308141220037
+  },
+  {
+   "id": "k",
+   "comparison": "SpatialAdd vs SpatialMult (defaultHP)",
+   "diffs_fold0to4": [
+    0.00119564623217705,
+    0.014506867599722972,
+    0.021195574984847032,
+    -0.025337145313608533,
+    0.01735683699054469
+   ],
+   "mean": 0.005783556098736642,
+   "sd_ddof1": 0.018954645167014936,
+   "n_pos": 4,
+   "p_t": 0.5325227076670846,
+   "p_W_exact": 0.625,
+   "d_z": 0.3051260547362419,
+   "boot_ci95": [
+    -0.010724042944760304,
+    0.018322338310101282
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.010724042944760304,
+    0.018322338310101282
+   ],
+   "p_NB": 0.6728061853201353,
+   "ci95_NB": [
+    -0.029519394655177552,
+    0.041086506852650834
+   ],
+   "ci95_t": [
+    -0.01775174440387282,
+    0.029318856601346106
+   ],
+   "p_NB_foldsize_ratio": 0.6728298740899691,
+   "q_BH_t": 0.5857749784337931,
+   "q_BH_NB": 0.7400868038521488
+  }
+ ],
+ "C_lora_minus_frozen": [
+  {
+   "config": "ABMIL_bestHP",
+   "diffs_fold0to4": [
+    0.00019503070694248947,
+    -0.004333657295887083,
+    0.0021518699838406485,
+    0.004685859887601063,
+    -0.0019994486935246414
+   ],
+   "mean": 0.00013993091779449519,
+   "sd_ddof1": 0.003510923725235717,
+   "n_pos": 3,
+   "p_t": 0.9332700439621078,
+   "p_W_exact": 0.8125,
+   "d_z": 0.03985586949346229,
+   "boot_ci95": [
+    -0.0025221820947552544,
+    0.002842000190623839
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.002529753859189454,
+    0.002842000190623839
+   ],
+   "p_NB": 0.9554725230450182,
+   "ci95_NB": [
+    -0.0063991504673024694,
+    0.006679012302891459
+   ],
+   "ci95_t": [
+    -0.0042194566722701474,
+    0.004499318507859137
+   ],
+   "p_NB_foldsize_ratio": 0.9554760252967551,
+   "q_BH_t_family12": 0.9580891905392259,
+   "q_BH_NB_family12": 0.9720493542451056,
+   "q_BH_t_family6_bestHP": 0.9332700439621078,
+   "q_BH_NB_family6_bestHP": 0.9554725230450182,
+   "lr_confound": false
+  },
+  {
+   "config": "DualBranch_bestHP",
+   "diffs_fold0to4": [
+    -0.008003438392342854,
+    -0.0009937615535356992,
+    -0.004224453681367479,
+    -0.005080180864071249,
+    0.0010357135219831726
+   ],
+   "mean": -0.003453224193866822,
+   "sd_ddof1": 0.003540683213628804,
+   "n_pos": 1,
+   "p_t": 0.09465618009331568,
+   "p_W_exact": 0.1875,
+   "d_z": -0.9752988294955802,
+   "boot_ci95": [
+    -0.006078338438839137,
+    -0.000593360370331486
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.006078338438839137,
+    -0.000593360370331486
+   ],
+   "p_NB": 0.2196504907845397,
+   "ci95_NB": [
+    -0.010047732506977774,
+    0.003141284119244131
+   ],
+   "ci95_t": [
+    -0.007849563069274123,
+    0.0009431146815404791
+   ],
+   "p_NB_foldsize_ratio": 0.21968023159343933,
+   "q_BH_t_family12": 0.3786247203732627,
+   "q_BH_NB_family12": 0.849765837468792,
+   "q_BH_t_family6_bestHP": 0.28396854027994706,
+   "q_BH_NB_family6_bestHP": 0.641150928808927,
+   "lr_confound": false
+  },
+  {
+   "config": "SpatialMult_bestHP",
+   "diffs_fold0to4": [
+    -0.002873085792752361,
+    -0.0003291864815087031,
+    0.027044383193131072,
+    0.002224098017050591,
+    0.03151655057409597
+   ],
+   "mean": 0.011516551902003314,
+   "sd_ddof1": 0.01639242493905608,
+   "n_pos": 3,
+   "p_t": 0.19128635876675384,
+   "p_W_exact": 0.4375,
+   "d_z": 0.7025532796288325,
+   "boot_ci95": [
+    -0.0008360893062943076,
+    0.024252969686782054
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0008360893062943076,
+    0.024252969686782054
+   ],
+   "p_NB": 0.35406909894533,
+   "ci95_NB": [
+    -0.019014273933121946,
+    0.04204737773712857
+   ],
+   "ci95_t": [
+    -0.00883733198808019,
+    0.031870435792086815
+   ],
+   "p_NB_foldsize_ratio": 0.35410285925365553,
+   "q_BH_t_family12": 0.4590872610402092,
+   "q_BH_NB_family12": 0.849765837468792,
+   "q_BH_t_family6_bestHP": 0.3825727175335077,
+   "q_BH_NB_family6_bestHP": 0.641150928808927,
+   "lr_confound": false
+  },
+  {
+   "config": "SpatialAdd_bestHP",
+   "diffs_fold0to4": [
+    -0.00032842687586320807,
+    -0.0010630425124931175,
+    -0.009532533880525551,
+    -0.004000593474153713,
+    0.003717473415314587
+   ],
+   "mean": -0.0022414246655442006,
+   "sd_ddof1": 0.004919643276244396,
+   "n_pos": 1,
+   "p_t": 0.3659185752540932,
+   "p_W_exact": 0.3125,
+   "d_z": -0.455607152731464,
+   "boot_ci95": [
+    -0.006144737333312578,
+    0.0013646799791853681
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.006213369636702448,
+    0.00128993324060791
+   ],
+   "p_NB": 0.5342924406741059,
+   "ci95_NB": [
+    -0.011404240575721042,
+    0.006921391244632641
+   ],
+   "ci95_t": [
+    -0.008349968605662094,
+    0.003867119274573693
+   ],
+   "p_NB_foldsize_ratio": 0.5343229837214458,
+   "q_BH_t_family12": 0.627288986149874,
+   "q_BH_NB_family12": 0.9159298982984672,
+   "q_BH_t_family6_bestHP": 0.4391022903049118,
+   "q_BH_NB_family6_bestHP": 0.641150928808927,
+   "lr_confound": false
+  },
+  {
+   "config": "RetNet_bestHP",
+   "diffs_fold0to4": [
+    -0.005367762833857315,
+    -0.0050064870227400915,
+    -0.005831580684255266,
+    -0.004047139271332156,
+    0.0002441679915613504
+   ],
+   "mean": -0.004001760364124696,
+   "sd_ddof1": 0.0024623996251953587,
+   "n_pos": 1,
+   "p_t": 0.022082755073765527,
+   "p_W_exact": 0.125,
+   "d_z": -1.6251465940696808,
+   "boot_ci95": [
+    -0.00548103481179305,
+    -0.0018292431961806743
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.00548103481179305,
+    -0.0018292431961806743
+   ],
+   "p_NB": 0.0725567859721505,
+   "ci95_NB": [
+    -0.008587969809817984,
+    0.0005844490815685921
+   ],
+   "ci95_t": [
+    -0.00705923332792022,
+    -0.0009442874003291707
+   ],
+   "p_NB_foldsize_ratio": 0.07257175558815064,
+   "q_BH_t_family12": 0.22973827051549608,
+   "q_BH_NB_family12": 0.6743004553611677,
+   "q_BH_t_family6_bestHP": 0.13249653044259319,
+   "q_BH_NB_family6_bestHP": 0.435340715832903,
+   "lr_confound": false
+  },
+  {
+   "config": "SpatialMultRetNet_bestHP",
+   "diffs_fold0to4": [
+    -0.0018685056520387766,
+    -0.003214183981310681,
+    0.0017645094856368893,
+    -0.007603909907640816,
+    0.0003061278425490199
+   ],
+   "mean": -0.002123192442560873,
+   "sd_ddof1": 0.0036162554929471398,
+   "n_pos": 2,
+   "p_t": 0.2594873492624071,
+   "p_W_exact": 0.3125,
+   "d_z": -0.5871245675815164,
+   "boot_ci95": [
+    -0.005143957172336821,
+    0.00045455380086660834
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.005143957172336821,
+    0.00047709446362980134
+   ],
+   "p_NB": 0.43085558987163713,
+   "ci95_NB": [
+    -0.00885845382340949,
+    0.004612068938287745
+   ],
+   "ci95_t": [
+    -0.00661336669645995,
+    0.0023669818113382047
+   ],
+   "p_NB_foldsize_ratio": 0.43088895662013693,
+   "q_BH_t_family12": 0.5189746985248141,
+   "q_BH_NB_family12": 0.8617111797432743,
+   "q_BH_t_family6_bestHP": 0.38923102389361064,
+   "q_BH_NB_family6_bestHP": 0.641150928808927,
+   "lr_confound": false
+  },
+  {
+   "config": "ABMIL_defaultHP",
+   "diffs_fold0to4": [
+    -0.0033927091524909025,
+    -0.006216045851898833,
+    0.0031927223419933037,
+    0.0009004839953379307,
+    0.002619260469496898
+   ],
+   "mean": -0.0005792576395123206,
+   "sd_ddof1": 0.004072372685168604,
+   "n_pos": 3,
+   "p_t": 0.7663523573885689,
+   "p_W_exact": 0.8125,
+   "d_z": -0.14224082231519494,
+   "boot_ci95": [
+    -0.0038843172477381004,
+    0.002504889923663667
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0038843172477381004,
+    0.002504889923663667
+   ],
+   "p_NB": 0.8424421693857475,
+   "ci95_NB": [
+    -0.008164035465175705,
+    0.0070055201861510645
+   ],
+   "ci95_t": [
+    -0.005635776189954578,
+    0.004477260910929937
+   ],
+   "p_NB_foldsize_ratio": 0.8424543509220936,
+   "q_BH_t_family12": 0.9580891905392259,
+   "q_BH_NB_family12": 0.9720493542451056,
+   "q_BH_t_family6_bestHP": null,
+   "q_BH_NB_family6_bestHP": null,
+   "lr_confound": true
+  },
+  {
+   "config": "DualBranch_defaultHP",
+   "diffs_fold0to4": [
+    0.0024991490174803843,
+    -0.0006692103302532448,
+    0.0015766792435152333,
+    0.0028861004650527766,
+    -0.006947943810204471
+   ],
+   "mean": -0.00013104508288186434,
+   "sd_ddof1": 0.004052688636264248,
+   "n_pos": 3,
+   "p_t": 0.9458309598244816,
+   "p_W_exact": 0.8125,
+   "d_z": -0.03233534442030591,
+   "boot_ci95": [
+    -0.0037253882591627764,
+    0.002469435641716311
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.0037253882591627764,
+    0.002469435641716311
+   ],
+   "p_NB": 0.9638654750592719,
+   "ci95_NB": [
+    -0.007679161446250119,
+    0.00741707128048639
+   ],
+   "ci95_t": [
+    -0.005163122658460701,
+    0.004901032492696972
+   ],
+   "p_NB_foldsize_ratio": 0.9638683186021204,
+   "q_BH_t_family12": 0.9580891905392259,
+   "q_BH_NB_family12": 0.9720493542451056,
+   "q_BH_t_family6_bestHP": null,
+   "q_BH_NB_family6_bestHP": null,
+   "lr_confound": true
+  },
+  {
+   "config": "SpatialMult_defaultHP",
+   "diffs_fold0to4": [
+    0.024656806580883317,
+    0.008339218672417936,
+    0.025099213627955308,
+    -0.000967167723715634,
+    0.02152857106393047
+   ],
+   "mean": 0.015731328444294278,
+   "sd_ddof1": 0.01155976336181263,
+   "n_pos": 4,
+   "p_t": 0.03828971175258268,
+   "p_W_exact": 0.125,
+   "d_z": 1.360869418509232,
+   "boot_ci95": [
+    0.00601890441643087,
+    0.024119640886907146
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.00601890441643087,
+    0.024208122296321542
+   ],
+   "p_NB": 0.11238340922686127,
+   "ci95_NB": [
+    -0.005798684546882246,
+    0.0372613414354708
+   ],
+   "ci95_t": [
+    0.0013779864501765968,
+    0.03008467043841196
+   ],
+   "p_NB_foldsize_ratio": 0.11240385187390908,
+   "q_BH_t_family12": 0.22973827051549608,
+   "q_BH_NB_family12": 0.6743004553611677,
+   "q_BH_t_family6_bestHP": null,
+   "q_BH_NB_family6_bestHP": null,
+   "lr_confound": true
+  },
+  {
+   "config": "SpatialAdd_defaultHP",
+   "diffs_fold0to4": [
+    0.026345837767313474,
+    -0.0017271035081616315,
+    -0.0025644264516425652,
+    0.024530094877964204,
+    0.00974846919853678
+   ],
+   "mean": 0.011266574376802053,
+   "sd_ddof1": 0.013836022303321795,
+   "n_pos": 3,
+   "p_t": 0.1427420187356572,
+   "p_W_exact": 0.3125,
+   "d_z": 0.8142928747734918,
+   "boot_ci95": [
+    0.0002330818557856773,
+    0.022300066897818428
+   ],
+   "boot_ci95_exact_enumeration": [
+    0.0002330818557856773,
+    0.022300066897818428
+   ],
+   "p_NB": 0.2915633526250532,
+   "ci95_NB": [
+    -0.014502961781766487,
+    0.03703611053537059
+   ],
+   "ci95_t": [
+    -0.0059131163955769735,
+    0.02844626514918108
+   ],
+   "p_NB_foldsize_ratio": 0.2915960945713339,
+   "q_BH_t_family12": 0.42822605620697163,
+   "q_BH_NB_family12": 0.849765837468792,
+   "q_BH_t_family6_bestHP": null,
+   "q_BH_NB_family6_bestHP": null,
+   "lr_confound": true
+  },
+  {
+   "config": "RetNet_defaultHP",
+   "diffs_fold0to4": [
+    0.007990026275831008,
+    0.013916791131932338,
+    -0.009427239908928353,
+    -0.011822899091155747,
+    -0.0036408095627230574
+   ],
+   "mean": -0.0005968262310087624,
+   "sd_ddof1": 0.01115398893939247,
+   "n_pos": 2,
+   "p_t": 0.9105311919049633,
+   "p_W_exact": 1.0,
+   "d_z": -0.05350787366311214,
+   "boot_ci95": [
+    -0.009228217512578251,
+    0.008062631952539933
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.009228217512578251,
+    0.008062631952539933
+   ],
+   "p_NB": 0.9402555429256949,
+   "ci95_NB": [
+    -0.02137108598461873,
+    0.020177433522601203
+   ],
+   "ci95_t": [
+    -0.014446332733415406,
+    0.013252680271397881
+   ],
+   "p_NB_foldsize_ratio": 0.9402602365135442,
+   "q_BH_t_family12": 0.9580891905392259,
+   "q_BH_NB_family12": 0.9720493542451056,
+   "q_BH_t_family6_bestHP": null,
+   "q_BH_NB_family6_bestHP": null,
+   "lr_confound": true
+  },
+  {
+   "config": "SpatialMultRetNet_defaultHP",
+   "diffs_fold0to4": [
+    -0.005717930670699367,
+    0.0047163209914962145,
+    0.008119396204273488,
+    -0.004656808858219397,
+    -0.001707257638531412
+   ],
+   "mean": 0.00015074400566390534,
+   "sd_ddof1": 0.006028059144157006,
+   "n_pos": 2,
+   "p_t": 0.9580891905392259,
+   "p_W_exact": 1.0,
+   "d_z": 0.02500705485114913,
+   "boot_ci95": [
+    -0.004491347339273788,
+    0.004883540149219457
+   ],
+   "boot_ci95_exact_enumeration": [
+    -0.004491347339273788,
+    0.004883540149219457
+   ],
+   "p_NB": 0.9720493542451056,
+   "ci95_NB": [
+    -0.011076492021850242,
+    0.011377980033178052
+   ],
+   "ci95_t": [
+    -0.007334080012678858,
+    0.007635568024006669
+   ],
+   "p_NB_foldsize_ratio": 0.9720515546275283,
+   "q_BH_t_family12": 0.9580891905392259,
+   "q_BH_NB_family12": 0.9720493542451056,
+   "q_BH_t_family6_bestHP": null,
+   "q_BH_NB_family6_bestHP": null,
+   "lr_confound": true
+  }
+ ],
+ "alt_family_eleven_plus_change": {
+  "q_t_change": 0.24725902347538894,
+  "q_NB_change": 0.5288748010936035,
+  "q_t_a": 0.09960393119511131,
+  "q_NB_a": 0.2870271815264078
+ },
+ "sensitivity": {
+  "max_abs_delta_p_NB_foldsizes": 3.376030832552557e-05,
+  "max_abs_delta_boot_ci_exact_vs_mc": 0.00016326983384764584
+ },
+ "kendall_tau_bestHP_ranks": 0.3333333333333333,
+ "decision_sentences_latex": [
+  "The pre-registered rule of \\ref{app:lora_question} reads: ``A sign-flip on either contrast, or a magnitude reduction by more than half of the original effect, would be evidence that the frozen-encoder result is encoder-state-specific and would limit the generalisation claim of Contribution~3.'' On LoRA-UNI features (Table~\\ref{tab:lora_planned_tests}, panel~A) Contrast~1 is positive in all five folds ($+0.0046$, 95\\% CI $[+0.0022, +0.0076]$; $p_{t} = 0.0415$, $p_{\\mathrm{NB}} = 0.1196$, $q_{\\mathrm{BH}}^{\\mathrm{NB}} = 0.2631$), and its mean is 47.6\\% smaller than on frozen features ($+0.0087$), so the point estimates meet neither condition of the rule.",
+  "The fold-paired change of the contrast, LoRA minus frozen, is $-0.0041$ (95\\% CI $[-0.0078, -0.0004]$; $p_{t} = 0.1236$, $p_{\\mathrm{NB}} = 0.2644$, $p_{W} = 0.1875$); a reduction by exactly half corresponds to a change of $-0.0043$, which lies inside this interval, while zero lies outside it; the corresponding Nadeau--Bengio interval $[-0.0130, +0.0047]$ contains both values.",
+  "Over the planned family of eleven LoRA-UNI contrasts, none reaches $q_{\\mathrm{BH}}^{\\mathrm{NB}} < 0.05$ (smallest 0.0805), while with the naive test two reach $q_{\\mathrm{BH}} < 0.05$ (\\texttt{SpatialMult} versus \\texttt{DualBranch} under both hyperparameter sets); none of the six per-configuration LoRA-minus-frozen differences has $p_{\\mathrm{NB}} < 0.05$ (smallest 0.0726, \\texttt{RetNet}), and the headline-QWK rule of \\ref{app:lora_decision} is defined on the five-fold mean alone and is not changed by these tests."
+ ]
+}

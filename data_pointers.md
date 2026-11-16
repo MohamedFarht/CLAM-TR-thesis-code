@@ -1,38 +1,55 @@
-# Data Pointers
+# Data pointers
 
-## PANDA (primary training cohort)
+Where the data, encoders and features used by the thesis come from, and under which licences. None of these files
+is redistributed in this repository. Page numbers refer to the printed thesis.
 
-- **Source.** Kaggle Prostate cANcer graDe Assessment (PANDA) Challenge.
-- **URL.** <https://www.kaggle.com/c/prostate-cancer-grade-assessment>
-- **Licence.** CC-BY-NC 4.0.
-- **Original size.** 10,616 slides (Karolinska University Hospital + Radboud University Medical Center).
-- **Noise-cleaning step.** Filter out the slides flagged as noisy in the dataset providers' supplementary list (Bulten et al., *Nature Medicine* 2022). Resulting cohort: **9,128 slides** spanning ISUP grades 0--5.
-- **5-fold split.** Stratified by ISUP grade, fixed random seed (42). Used by the 1st-place team's released split at <https://github.com/kentaroy47/Kaggle-PANDA-1st-place-solution>.
+## PANDA (the cohort of the thesis)
 
-## UNI v1 encoder
+- **Source.** Kaggle Prostate Cancer Grade Assessment (PANDA) challenge archive, under its official data-use
+  agreement: <https://www.kaggle.com/competitions/prostate-cancer-grade-assessment/data> (Bulten et al., 2022).
+- **Licence.** The development set is released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+  licence (CC BY-NC-SA 4.0) (p.47).
+- **Raw release.** 10,616 slides: Karolinska 5,456 + Radboud 5,160 (thesis Figure 3).
+- **Noise-cleaned subset.** 9,128 slides (Karolinska 5,121 + Radboud 4,007), made by model-based label denoising in
+  the PANDA 1st-place solution: 1,488 slides on which the Team PND model disagreed with the label were removed
+  (Radboud 1,153, Karolinska 335) (thesis Figure 3 and Limitation L1). The subset favours models that agree with the
+  cleaning model, so in-distribution QWK values are likely higher than on the full release (Limitation L1).
+- **Five-fold split.** Taken from the public release of the 1st-place solution (Team PND et al., 2020),
+  <https://github.com/kentaroy47/Kaggle-PANDA-1st-place-solution>, licence CC-BY-NC 4.0 (p.47); file
+  `train-5kfold_remove_noisy_by_0622_rad_13_08_ka_15_10.csv`. The split is stratified on Gleason score and provider,
+  with slide-level isolation and each group of duplicate images in one fold; fold sizes 1,803 / 1,787 / 1,816 /
+  1,933 / 1,789 (thesis Figure 3 and Section 2.1.3). The same five folds are used for every configuration.
 
-- **Source.** Mahmood Lab (Chen et al., *Nature Medicine* 2024).
-- **URL.** <https://huggingface.co/MahmoodLab/UNI>
-- **Licence.** Gated repository; researchers must accept terms before download.
-- **Use in thesis.** Frozen feature extractor; 1,024-dimensional ViT-L/16 embeddings per 256x256-pixel patch at 20x effective magnification.
+## UNI encoder (ViT-L/16)
 
-## UNI2-h encoder
+- **Source.** Mahmood Lab (Chen et al., 2024), <https://huggingface.co/MahmoodLab/UNI>.
+- **Licence.** Mahmood Lab gated-research licence; accept the terms on the model card before downloading (p.47).
+- **Use in the thesis.** Frozen feature extractor. The UNI features were extracted for this thesis from the PANDA
+  slides with the released weights (`01-data-preparation/UNI_Feature_Extraction.ipynb`): non-overlapping
+  256 × 256-pixel patches at 20× (level 0), kept if at least 50% tissue, resized to 224 × 224 pixels, 1,024-d feature
+  per patch, one `.pt` file per slide with the features and the level-0 coordinates; median 457 patches per slide
+  (thesis Figure 8 and Section 2.3.2).
 
-- **Source.** Mahmood Lab.
-- **URL.** <https://huggingface.co/MahmoodLab/UNI2-h>
-- **Licence.** Gated repository.
-- **Use in thesis.** Frozen feature extractor; 1,536-dimensional ViT-H/14 embeddings. We use the pre-extracted feature tensors from the public `MahmoodLab/UNI2-h-features` HuggingFace repository (saves Colab time vs. re-extraction).
+## UNI2-h encoder (ViT-H/14)
 
-## TCGA-PRAD (external test cohort -- used in Q1 paper only; thesis is PANDA-only)
+- **Source.** Mahmood Lab, <https://huggingface.co/MahmoodLab/UNI2-h>; licence: Mahmood Lab gated-research licence
+  (p.47).
+- **Features.** The UNI2-h features were downloaded pre-extracted from the public MahmoodLab/UNI2-h-features
+  HuggingFace repository (Mahmood Lab, 2025; `01-data-preparation/download_features.ipynb`), which publishes
+  1,536-dimensional features for the full PANDA cohort under the CC-BY-NC-ND 4.0 licence. They were used under its
+  non-commercial terms and are not redistributed (p.47). One `.h5` file per slide; median 538 patches per slide
+  (Section 2.3.2). The two encoders therefore saw different patch sets from different extraction pipelines
+  (Limitation L2).
 
-- **Source.** NIH Genomic Data Commons.
-- **URL.** <https://portal.gdc.cancer.gov/projects/TCGA-PRAD>
-- **Licence.** NIH open-access (no controlled-access components used).
-- **Cancer-positive cohort.** 426 Diagnostic Slides (sample type code 01, Primary Tumor; DX-prefixed).
-- **Benign cohort.** 118 Tissue Slides (sample type code 11, Solid Tissue Normal; TS-prefixed).
+## TCGA-PRAD (companion journal paper only)
 
-The TCGA-PRAD GDC REST API queries used to retrieve both subcohorts are embedded in the Q1 paper Supplementary Section S7 (see [github.com/MohamedFarht/CLAM-TR](https://github.com/MohamedFarht/CLAM-TR) for the Q1 paper code release).
+The thesis results are in-distribution PANDA results. The zero-shot TCGA-PRAD evaluation (NIH Genomic Data
+Commons, <https://portal.gdc.cancer.gov/projects/TCGA-PRAD>) belongs to the companion journal paper (under review);
+its cohort definition and scripts are in the sibling repository <https://github.com/MohamedFarht/CLAM-TR>. The
+notebooks in `07-q1-sprint/` were written for that work.
 
-## Reproducibility convention
+## Random seed
 
-All preprocessing, feature extraction, training, and evaluation derive randomness from a single seed (42). The release Stage 4 LoRA fine-tuning protocol uses seeds 1 through 20 for the multi-seed extension (deferred to post-defence per the thesis future-work programme).
+The v20 factorial notebooks and the LoRA notebook fix `SEED = 42`; under mixed precision a re-run is not bit-wise
+identical (p.42). The folds
+come from the released split file above, not from the seed. Details: `REPRODUCIBILITY.md`.

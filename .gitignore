@@ -1,0 +1,7 @@
+# Python caches
+__pycache__/
+*.pyc
+
+# Outputs written next to the figure and statistics scripts when they are run
+06-thesis-figures/plots/*.png.tmp
+.ipynb_checkpoints/

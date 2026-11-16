@@ -1,0 +1,34 @@
+# Python packages used by this repository (see REPRODUCIBILITY.md).
+# The training notebooks install their packages without version pins on top of the Google Colab image, and the
+# package versions of those runs were not recorded. Entries are therefore unpinned, except where a notebook pins a
+# version or the thesis gives a lower bound.
+
+# Training, feature extraction and LoRA notebooks (01-05, 07; Google Colab with a GPU)
+torch>=2.0                # thesis: PyTorch 2.x; mixed precision via torch.amp
+torchvision
+timm
+huggingface_hub           # gated MahmoodLab/UNI and MahmoodLab/UNI2-h releases
+openslide-python          # needs the system package openslide-tools (apt-get)
+h5py                      # UNI2-h feature files
+opencv-python-headless
+numpy
+pandas
+scipy
+scikit-learn              # QWK: sklearn.metrics.cohen_kappa_score(weights="quadratic")
+matplotlib
+seaborn
+tqdm
+Pillow
+peft                      # LoRA adapters (05-experimental; Stage 3 extraction in 01-data-preparation)
+torchao>=0.16.0           # pinned in the LoRA notebook
+psutil                    # LoRA notebook
+requests                  # 07-q1-sprint notebooks
+
+# Analysis and figure scripts (06-thesis-figures; CPU). Versions used for the check of 16 Nov 2026:
+# Python 3.13.3, numpy 2.2.6, scipy 1.15.3, pandas 3.0.1, scikit-learn 1.8.0, statsmodels 0.15.0,
+# matplotlib 3.10.8, seaborn 0.13.2, PyMuPDF 1.27.2, Pillow 11.2.1
+statsmodels
+PyMuPDF                   # imported as fitz
+
+# Only for the upstream notebooks in 08-kaggle-panda-baseline (PANDA 1st-place solution):
+# albumentations efficientnet_pytorch ttach warmup_scheduler scikit-image tifffile

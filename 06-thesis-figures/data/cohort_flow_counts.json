@@ -1,0 +1,863 @@
+{
+ "meta": {
+  "script": "06-thesis-figures/analysis/cohort_flow_counts.py",
+  "run": "2026-10-30T08:37:09",
+  "runtime_s": 0.6
+ },
+ "panda": {
+  "release": {
+   "file": "Kaggle-PANDA-1st-place-solution\\Kaggle-PANDA-1st-place-solution-master\\input\\train-5kfold.csv",
+   "n_rows": 10616,
+   "n_unique_ids": 10616,
+   "per_provider": {
+    "karolinska": 5456,
+    "radboud": 5160
+   },
+   "isup": {
+    "0": 2892,
+    "1": 2666,
+    "2": 1343,
+    "3": 1242,
+    "4": 1249,
+    "5": 1224
+   },
+   "isup_by_provider": {
+    "karolinska": {
+     "0": 1925,
+     "1": 1814,
+     "2": 668,
+     "3": 317,
+     "4": 481,
+     "5": 251
+    },
+    "radboud": {
+     "0": 967,
+     "1": 852,
+     "2": 675,
+     "3": 925,
+     "4": 768,
+     "5": 973
+    }
+   },
+   "kfold_sizes": {
+    "1": 2096,
+    "2": 2042,
+    "3": 2135,
+    "4": 2261,
+    "5": 2082
+   },
+   "original_train_csv": {
+    "file": "PANDA\\dataset\\train.csv",
+    "n_rows": 10616,
+    "same_id_set_as_kfold_csv": true,
+    "same_isup_labels": true,
+    "per_provider": {
+     "karolinska": 5456,
+     "radboud": 5160
+    },
+    "provider_mismatches_vs_kfold_csv": 0
+   }
+  },
+  "duplicates": {
+   "file": "Kaggle-PANDA-1st-place-solution\\Kaggle-PANDA-1st-place-solution-master\\input\\duplicate_imgids_imghash_thres_090.csv",
+   "n_rows": 2121,
+   "n_unique_ids": 2121,
+   "n_groups": 631,
+   "group_size_distribution": {
+    "10": 3,
+    "11": 1,
+    "114": 1,
+    "12": 2,
+    "123": 1,
+    "131": 1,
+    "14": 1,
+    "18": 1,
+    "19": 1,
+    "2": 506,
+    "26": 2,
+    "3": 60,
+    "37": 1,
+    "4": 23,
+    "49": 1,
+    "5": 11,
+    "55": 1,
+    "6": 3,
+    "7": 4,
+    "8": 4,
+    "9": 3
+   },
+   "n_ids_not_first_in_group": 1490,
+   "n_ids_present_in_release": 2121,
+   "n_groups_all_members_same_fold": 631,
+   "n_groups_split_across_folds": 0,
+   "n_dup_ids_in_9128": 1715,
+   "n_groups_with_2plus_members_in_9128": 486,
+   "n_slides_in_9128_belonging_to_multi_member_groups": 1650,
+   "handling_in_code": [
+    "L21: arg(\"--seed\", type=int, default=1222)",
+    "L40: img_ids_excluded = set(df_duplicated[df_duplicated.index_in_group != 0].image_id)",
+    "L43: df = df[~df.image_id.isin(img_ids_excluded)].copy().reset_index(drop=True)",
+    "L48: y_gleason = df.gleason_score.apply(lambda x: label2id[x]).values",
+    "L52: y_provider = df.data_provider.apply(lambda x: privider2id[x]).values",
+    "L63: mskf = MultilabelStratifiedKFold(",
+    "L64: n_splits=args.kfold, random_state=args.seed, shuffle=True",
+    "L71: # Fill duplicated image id to same group's kfold",
+    "L89: & (df_duplicated.index_in_group == 0)"
+   ],
+   "reading": "The duplicate list is used only for the fold assignment: non-first members of each image-hash group are left out of MultilabelStratifiedKFold (Gleason score x data provider, 5 splits, random_state 1222, shuffle) and then given the fold of the group's first image. No slide is removed at this step (all 10,616 remain in train-5kfold.csv)."
+  },
+  "denoising": {
+   "file": "Kaggle-PANDA-1st-place-solution\\Kaggle-PANDA-1st-place-solution-master\\input\\train-5kfold_remove_noisy_by_0622_rad_13_08_ka_15_10.csv",
+   "n_kept": 9128,
+   "n_unique_kept": 9128,
+   "kept_subset_of_release": true,
+   "n_removed": 1488,
+   "removed_per_provider": {
+    "karolinska": 335,
+    "radboud": 1153
+   },
+   "removal_rate_per_provider": {
+    "karolinska": 0.061400293255131966,
+    "radboud": 0.22344961240310077
+   },
+   "removed_per_isup": {
+    "0": 134,
+    "1": 228,
+    "2": 210,
+    "3": 417,
+    "4": 265,
+    "5": 234
+   },
+   "removed_per_provider_isup": {
+    "karolinska": {
+     "0": 21,
+     "1": 42,
+     "2": 64,
+     "3": 69,
+     "4": 96,
+     "5": 43
+    },
+    "radboud": {
+     "0": 113,
+     "1": 186,
+     "2": 146,
+     "3": 348,
+     "4": 169,
+     "5": 191
+    }
+   },
+   "removed_dup_ids": 406,
+   "thresholds_from_s12": {
+    "radboud_by_isup_0_to_5": [
+     1.3,
+     0.8,
+     0.8,
+     0.8,
+     0.8,
+     1.3
+    ],
+    "karolinska_by_isup_0_to_5": [
+     1.5,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.5
+    ],
+    "rule": "slide removed if |ISUP label - out-of-fold EfficientNet-b1 regression output| > threshold(provider, ISUP)"
+   },
+   "file_name_encodes": "rad_13_08 = Radboud 1.3 (ISUP 0 and 5) / 0.8 (ISUP 1-4); ka_15_10 = Karolinska 1.5 / 1.0",
+   "kept_rows_violating_threshold": 0,
+   "kept_max_gap_per_cell": {
+    "karolinska|0": 1.496082,
+    "karolinska|1": 0.99595,
+    "karolinska|2": 0.99884,
+    "karolinska|3": 0.99931,
+    "karolinska|4": 0.979275,
+    "karolinska|5": 1.475769,
+    "radboud|0": 1.299158,
+    "radboud|1": 0.793315,
+    "radboud|2": 0.799618,
+    "radboud|3": 0.795867,
+    "radboud|4": 0.798406,
+    "radboud|5": 1.290165
+   },
+   "kept_kfold_equals_release_kfold": true,
+   "kept_isup_equals_release_isup": true,
+   "readme": [
+    "L105: $ python train.py --config configs/final_1.yaml --kfold 1",
+    "L132: ## 5. Remove noise",
+    "L149: - Label cleaned to remove 20% Radboud labels",
+    "L150: - FYI: we used this csv at final sub on competition: (did not fix seed at time)",
+    "L151: - `input/train-5kfold_remove_noisy_by_0622_rad_13_08_ka_15_10.csv`",
+    "L155: - You can replace `output/train-5kfold_remove_noisy.csv` to `input/train-5kfold_remove_noisy_by_0622_rad_13_08_ka_15_10.csv` in config"
+   ]
+  },
+  "cohort_9128": {
+   "n": 9128,
+   "per_provider": {
+    "karolinska": 5121,
+    "radboud": 4007
+   },
+   "isup": {
+    "0": 2758,
+    "1": 2438,
+    "2": 1133,
+    "3": 825,
+    "4": 984,
+    "5": 990
+   },
+   "isup_by_provider": {
+    "karolinska": {
+     "0": 1904,
+     "1": 1772,
+     "2": 604,
+     "3": 248,
+     "4": 385,
+     "5": 208
+    },
+    "radboud": {
+     "0": 854,
+     "1": 666,
+     "2": 529,
+     "3": 577,
+     "4": 599,
+     "5": 782
+    }
+   },
+   "folds": {
+    "0": {
+     "kfold_csv_value": 1,
+     "n": 1803,
+     "radboud": 825,
+     "karolinska": 978,
+     "pct_radboud": 45.76,
+     "isup": {
+      "0": 520,
+      "1": 495,
+      "2": 218,
+      "3": 185,
+      "4": 173,
+      "5": 212
+     }
+    },
+    "1": {
+     "kfold_csv_value": 2,
+     "n": 1787,
+     "radboud": 758,
+     "karolinska": 1029,
+     "pct_radboud": 42.42,
+     "isup": {
+      "0": 522,
+      "1": 504,
+      "2": 218,
+      "3": 146,
+      "4": 215,
+      "5": 182
+     }
+    },
+    "2": {
+     "kfold_csv_value": 3,
+     "n": 1816,
+     "radboud": 752,
+     "karolinska": 1064,
+     "pct_radboud": 41.41,
+     "isup": {
+      "0": 571,
+      "1": 477,
+      "2": 232,
+      "3": 142,
+      "4": 202,
+      "5": 192
+     }
+    },
+    "3": {
+     "kfold_csv_value": 4,
+     "n": 1933,
+     "radboud": 897,
+     "karolinska": 1036,
+     "pct_radboud": 46.4,
+     "isup": {
+      "0": 616,
+      "1": 473,
+      "2": 228,
+      "3": 182,
+      "4": 210,
+      "5": 224
+     }
+    },
+    "4": {
+     "kfold_csv_value": 5,
+     "n": 1789,
+     "radboud": 775,
+     "karolinska": 1014,
+     "pct_radboud": 43.32,
+     "isup": {
+      "0": 529,
+      "1": 489,
+      "2": 237,
+      "3": 170,
+      "4": 184,
+      "5": 180
+     }
+    }
+   }
+  },
+  "trained_runs_crosscheck": {
+   "UNI": {
+    "aggregators_with_5_bestHP_fold_files": [
+     "ABMIL",
+     "DualBranch",
+     "SpatialMult",
+     "SpatialAdd",
+     "RetNet",
+     "SpatialMultRetNet"
+    ],
+    "n_bestHP_configs": 6,
+    "aggregators_with_5_defaultHP_fold_files": [
+     "ABMIL",
+     "DualBranch",
+     "SpatialMult",
+     "SpatialAdd",
+     "RetNet",
+     "SpatialMultRetNet"
+    ],
+    "retnet_bestHP_folds": {
+     "0": {
+      "n": 1803,
+      "equals_csv_fold": true
+     },
+     "1": {
+      "n": 1787,
+      "equals_csv_fold": true
+     },
+     "2": {
+      "n": 1816,
+      "equals_csv_fold": true
+     },
+     "3": {
+      "n": 1933,
+      "equals_csv_fold": true
+     },
+     "4": {
+      "n": 1789,
+      "equals_csv_fold": true
+     }
+    }
+   },
+   "UNI2-h": {
+    "aggregators_with_5_bestHP_fold_files": [
+     "ABMIL",
+     "DualBranch",
+     "SpatialMult",
+     "SpatialAdd",
+     "RetNet",
+     "SpatialMultRetNet"
+    ],
+    "n_bestHP_configs": 6,
+    "aggregators_with_5_defaultHP_fold_files": [
+     "ABMIL",
+     "DualBranch",
+     "SpatialMult",
+     "SpatialAdd",
+     "RetNet",
+     "SpatialMultRetNet"
+    ],
+    "retnet_bestHP_folds": {
+     "0": {
+      "n": 1803,
+      "equals_csv_fold": true
+     },
+     "1": {
+      "n": 1787,
+      "equals_csv_fold": true
+     },
+     "2": {
+      "n": 1816,
+      "equals_csv_fold": true
+     },
+     "3": {
+      "n": 1933,
+      "equals_csv_fold": true
+     },
+     "4": {
+      "n": 1789,
+      "equals_csv_fold": true
+     }
+    }
+   }
+  },
+  "n_configurations_bestHP": 12
+ },
+ "tcga": {
+  "gdc_manifest": {
+   "file": "<Drive>\\TCGA_PRAD\\gdc_manifest.tsv",
+   "n_rows": 449,
+   "n_unique_slides": 449,
+   "slide_type_codes": {
+    "DX": 449
+   },
+   "sample_codes": {
+    "01Z": 449
+   },
+   "n_patients": 403,
+   "total_size_gb": 437.55,
+   "states": {
+    "released": 449
+   }
+  },
+  "clinical": {
+   "file": "<Drive>\\TCGA_PRAD\\clinical.csv",
+   "n_cases": 500,
+   "n_unique_cases": 500,
+   "n_cases_with_both_patterns": 471
+  },
+  "dx_exclusions": {
+   "rule": "gleason_to_isup() of T2_1_phase2 notebook cell 9 applied to clinical.csv primary/secondary Gleason patterns; slide -> case via the manifest case_id (= submitter id)",
+   "n_manifest": 449,
+   "n_included": 426,
+   "n_excluded": 23,
+   "reasons": {
+    "no primary/secondary Gleason pattern in the GDC clinical export": 22,
+    "Gleason 2+4 outside the ISUP 2014 mapping (patterns 3-5 only)": 1
+   },
+   "excluded_slides": [
+    {
+     "slide_id": "TCGA-G9-A9S0-01Z-00-DX1.790729D2-1AF4-4ACF-A470-A9ADC786298E",
+     "patient": "TCGA-G9-A9S0",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-HC-7748-01Z-00-DX1.6a3e2e09-65ba-48e1-b400-dfcf0bd61dc2",
+     "patient": "TCGA-HC-7748",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-XK-AAJ3-01Z-00-DX1.48C36FDF-232A-49BC-AAB5-4B8BFB215743",
+     "patient": "TCGA-XK-AAJ3",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-KK-A7B4-01Z-00-DX1.DAC07B4A-C8C5-4DFE-963A-502FB264E205",
+     "patient": "TCGA-KK-A7B4",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-KK-A8IJ-01Z-00-DX1.84EA7BE5-2707-4DDC-965F-1D65A0BCD280",
+     "patient": "TCGA-KK-A8IJ",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-KK-A7B3-01Z-00-DX1.2525F4D7-C3A5-4469-9D5E-F33532A3BA21",
+     "patient": "TCGA-KK-A7B3",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-YL-A9WY-01Z-00-DX1.16415C29-1D79-4560-8F49-633F37F2804E",
+     "patient": "TCGA-YL-A9WY",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-EJ-5542-01Z-00-DX1.84ef2f6d-29d7-4d36-96b4-14bd30742016",
+     "patient": "TCGA-EJ-5542",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-CH-5751-01Z-00-DX1.6bacc42c-0cc1-4210-80b4-14695e4c6ba2",
+     "patient": "TCGA-CH-5751",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-KK-A7AP-01Z-00-DX1.0776D25A-0E19-4268-8165-791CB95AD714",
+     "patient": "TCGA-KK-A7AP",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-HC-7080-01Z-00-DX1.c979be6a-e7c9-4840-8555-6f34499dd2bf",
+     "patient": "TCGA-HC-7080",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-CH-5763-01Z-00-DX1.7d4eff47-8d99-41d4-87f0-163b2cb034bf",
+     "patient": "TCGA-CH-5763",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-EJ-5525-01Z-00-DX1.7baf2b11-607e-4001-b5ac-6e33616dc969",
+     "patient": "TCGA-EJ-5525",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-XK-AAK1-01Z-00-DX1.5354527B-905C-4F39-B469-3A64D0BC56A2",
+     "patient": "TCGA-XK-AAK1",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-J4-A83N-01Z-00-DX1.65D44347-8852-4394-A3B1-63C66D63C142",
+     "patient": "TCGA-J4-A83N",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-CH-5743-01Z-00-DX1.d775c0bd-8c32-45b1-a6d2-afd4e17ec649",
+     "patient": "TCGA-CH-5743",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-HC-A6AQ-01Z-00-DX1.23957370-CCE3-49C2-AE21-4591DCE47E86",
+     "patient": "TCGA-HC-A6AQ",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-EJ-5524-01Z-00-DX1.f831ad94-5d57-4401-9e0d-6c35489efcca",
+     "patient": "TCGA-EJ-5524",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-CH-5753-01Z-00-DX1.c503402e-b8a1-471f-87fe-8aab40bec07a",
+     "patient": "TCGA-CH-5753",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-HC-7821-01Z-00-DX1.85c082ca-1159-4cd1-b003-fed32f2ddf9e",
+     "patient": "TCGA-HC-7821",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-YL-A9WJ-01Z-00-DX1.ECE31D79-8A8E-45DB-8BC4-97B303D38B1B",
+     "patient": "TCGA-YL-A9WJ",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-KK-A8I4-01Z-00-DX1.5331B969-783B-4549-B187-C267497C5BBD",
+     "patient": "TCGA-KK-A8I4",
+     "reason": "no primary/secondary Gleason pattern in the GDC clinical export",
+     "primary": null,
+     "secondary": null,
+     "gleason_score_field": "",
+     "grade_group_field": ""
+    },
+    {
+     "slide_id": "TCGA-CH-5768-01Z-00-DX1.4c6626ea-a1fb-4aca-8970-a40035025174",
+     "patient": "TCGA-CH-5768",
+     "reason": "Gleason 2+4 outside the ISUP 2014 mapping (patterns 3-5 only)",
+     "primary": 2,
+     "secondary": 4,
+     "gleason_score_field": "6.0",
+     "grade_group_field": ""
+    }
+   ],
+   "n_excluded_patients": 23,
+   "n_excluded_patients_with_other_included_slides": 0,
+   "reproduces_labels_csv_ids": true,
+   "reproduces_labels_csv_isup": true,
+   "labels_csv_rows": 426
+  },
+  "dx_cohort": {
+   "n_slides": 426,
+   "n_patients": 380,
+   "slides_per_patient": {
+    "1": 367,
+    "2": 2,
+    "3": 1,
+    "4": 6,
+    "5": 1,
+    "6": 1,
+    "8": 1,
+    "9": 1
+   },
+   "isup_slide_level": {
+    "1": 42,
+    "2": 120,
+    "3": 89,
+    "4": 61,
+    "5": 114
+   },
+   "isup_patient_level": {
+    "1": 38,
+    "2": 117,
+    "3": 86,
+    "4": 46,
+    "5": 93
+   },
+   "patients_with_conflicting_isup": 0,
+   "slide_type_codes": {
+    "DX": 426
+   },
+   "dx_numbers": {
+    "DX1": 380,
+    "DX2": 13,
+    "DX3": 11,
+    "DX4": 10,
+    "DX5": 4,
+    "DX6": 3,
+    "DX7": 2,
+    "DX8": 2,
+    "DX9": 1
+   },
+   "n_sites": 27,
+   "slides_per_site": {
+    "HC": 61,
+    "EJ": 60,
+    "G9": 43,
+    "YL": 42,
+    "KK": 40,
+    "V1": 31,
+    "J4": 22,
+    "CH": 19,
+    "VP": 13,
+    "X4": 13,
+    "Y6": 11,
+    "2A": 10,
+    "XK": 8,
+    "WW": 8,
+    "M7": 8,
+    "XJ": 7,
+    "FC": 7,
+    "QU": 5,
+    "HI": 4,
+    "XQ": 3,
+    "H9": 3,
+    "TP": 2,
+    "MG": 2,
+    "SU": 1,
+    "TK": 1,
+    "XA": 1,
+    "4L": 1
+   },
+   "sites_with_n_slides_ge": {
+    "4": 19,
+    "8": 15,
+    "10": 12,
+    "20": 7,
+    "30": 6
+   },
+   "slides_in_sites_with_n_ge": {
+    "4": 412,
+    "8": 389,
+    "10": 365,
+    "20": 299,
+    "30": 277
+   },
+   "sites_with_n_patients_ge": {
+    "4": 16,
+    "8": 12,
+    "10": 10,
+    "20": 7,
+    "30": 5
+   },
+   "sites_with_fewer_than_4_slides": [
+    "4L",
+    "H9",
+    "MG",
+    "SU",
+    "TK",
+    "TP",
+    "XA",
+    "XQ"
+   ]
+  },
+  "ts_benign": {
+   "file": "<Drive>\\TCGA_PRAD\\labels_benign.csv",
+   "n_slides": 118,
+   "n_unique_slides": 118,
+   "n_patients": 118,
+   "slide_type_codes": {
+    "TS": 118
+   },
+   "sample_codes": {
+    "11A": 117,
+    "11B": 1
+   },
+   "isup_labels": {
+    "0": 118
+   },
+   "n_sites": 6,
+   "slides_per_site": {
+    "KK": 45,
+    "EJ": 26,
+    "G9": 18,
+    "HC": 17,
+    "CH": 11,
+    "J4": 1
+   },
+   "total_size_gb": 19.68,
+   "patients_also_in_dx426": 103,
+   "patients_also_in_manifest449": 110,
+   "query": "GDC files: project TCGA-PRAD, cases.samples.sample_type = Solid Tissue Normal, data_format SVS (T2_2_phase3 notebook cell 9); all files returned were used"
+  },
+  "artefacts": {
+   "feature_dir_dx": "<Drive>\\CLAM_TR_Features\\TCGA_PRAD\\uni_20x",
+   "n_feature_files_dx": 426,
+   "dx_features_equal_labelled": true,
+   "feature_dir_ts": "<Drive>\\CLAM_TR_Features\\TCGA_PRAD\\uni_20x_benign",
+   "n_feature_files_ts": 118,
+   "ts_features_equal_labelled": true,
+   "n_predictions_dx": 426,
+   "dx_predictions_equal_labelled": true,
+   "n_predictions_ts": 118,
+   "ts_predictions_equal_labelled": true
+  }
+ },
+ "flow": {
+  "panda_release": 10616,
+  "panda_release_karolinska": 5456,
+  "panda_release_radboud": 5160,
+  "dup_ids": 2121,
+  "dup_groups": 631,
+  "dup_nonfirst": 1490,
+  "dup_groups_coassigned": 631,
+  "denoise_removed": 1488,
+  "denoise_removed_radboud": 1153,
+  "denoise_removed_karolinska": 335,
+  "denoise_thr_rad": [
+   1.3,
+   0.8,
+   0.8,
+   0.8,
+   0.8,
+   1.3
+  ],
+  "denoise_thr_ka": [
+   1.5,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.5
+  ],
+  "cohort": 9128,
+  "cohort_karolinska": 5121,
+  "cohort_radboud": 4007,
+  "cohort_isup": {
+   "0": 2758,
+   "1": 2438,
+   "2": 1133,
+   "3": 825,
+   "4": 984,
+   "5": 990
+  },
+  "fold_sizes": [
+   1803,
+   1787,
+   1816,
+   1933,
+   1789
+  ],
+  "fold_pct_radboud": [
+   45.76,
+   42.42,
+   41.41,
+   46.4,
+   43.32
+  ],
+  "n_encoders": 2,
+  "n_aggregators": 6,
+  "n_configurations": 12,
+  "tcga_manifest": 449,
+  "tcga_manifest_patients": 403,
+  "tcga_excluded": 23,
+  "tcga_excluded_no_gleason": 22,
+  "tcga_excluded_nonstandard": 1,
+  "tcga_excluded_no_case": 0,
+  "tcga_dx": 426,
+  "tcga_dx_patients": 380,
+  "tcga_dx_sites": 27,
+  "tcga_dx_isup": {
+   "1": 42,
+   "2": 120,
+   "3": 89,
+   "4": 61,
+   "5": 114
+  },
+  "tcga_dx_sites_ge8": 15,
+  "tcga_dx_sites_ge20": 7,
+  "tcga_ts": 118,
+  "tcga_ts_patients": 118,
+  "tcga_ts_sites": 6,
+  "tcga_ts_patients_in_dx": 103
+ }
+}
